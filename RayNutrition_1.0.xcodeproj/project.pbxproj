@@ -7,15 +7,46 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA2091A923FC8DAC00D49904 /* RayOfReturnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */; };
+		FA2091AC23FC8E6C00D49904 /* RayOfReturn.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091AB23FC8E6C00D49904 /* RayOfReturn.swift */; };
+		FA2091AE23FC8EEE00D49904 /* RayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091AD23FC8EEE00D49904 /* RayCell.swift */; };
+		FA2091B123FC9DD900D49904 /* EarthHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091AF23FC9DD900D49904 /* EarthHeader.swift */; };
+		FA2091B223FC9DD900D49904 /* TimeFactor.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091B023FC9DD900D49904 /* TimeFactor.swift */; };
+		FA2091B423FD56CC00D49904 /* RayOfEarthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */; };
+		FA2091B823FD584200D49904 /* RayOfExitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091B723FD584200D49904 /* RayOfExitController.swift */; };
+		FA956E7223FEB05B002A76C7 /* RayOfHumanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7123FEB05B002A76C7 /* RayOfHumanController.swift */; };
+		FA956E7423FF4116002A76C7 /* HumanHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7323FF4116002A76C7 /* HumanHeader.swift */; };
+		FA956E7623FF4131002A76C7 /* ReturnHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7523FF4131002A76C7 /* ReturnHeader.swift */; };
+		FA956E7823FF433E002A76C7 /* ExitHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7723FF433E002A76C7 /* ExitHeader.swift */; };
+		FA956E7A2409277E002A76C7 /* ResultsController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E792409277B002A76C7 /* ResultsController.swift */; };
+		FA956E7C24095736002A76C7 /* ResultsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7B24095736002A76C7 /* ResultsCell.swift */; };
+		FA956E8024099E6D002A76C7 /* ResultsHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7F24099E6D002A76C7 /* ResultsHeader.swift */; };
 		FACEE30823FC6F0500DD8C23 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACEE30723FC6F0500DD8C23 /* AppDelegate.swift */; };
 		FACEE30A23FC6F0500DD8C23 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACEE30923FC6F0500DD8C23 /* SceneDelegate.swift */; };
 		FACEE30C23FC6F0500DD8C23 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACEE30B23FC6F0500DD8C23 /* ViewController.swift */; };
 		FACEE30F23FC6F0500DD8C23 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACEE30D23FC6F0500DD8C23 /* Main.storyboard */; };
 		FACEE31123FC6F0A00DD8C23 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FACEE31023FC6F0A00DD8C23 /* Assets.xcassets */; };
 		FACEE31423FC6F0A00DD8C23 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FACEE31223FC6F0A00DD8C23 /* LaunchScreen.storyboard */; };
+		FACEE32323FC75B700DD8C23 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACEE32123FC75B700DD8C23 /* Extensions.swift */; };
+		FACEE32423FC75B700DD8C23 /* Utilities.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACEE32223FC75B700DD8C23 /* Utilities.swift */; };
+		FACEE32723FC775900DD8C23 /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = FACEE32523FC775900DD8C23 /* MenuBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfReturnController.swift; sourceTree = "<group>"; };
+		FA2091AB23FC8E6C00D49904 /* RayOfReturn.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RayOfReturn.swift; sourceTree = "<group>"; };
+		FA2091AD23FC8EEE00D49904 /* RayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RayCell.swift; sourceTree = "<group>"; };
+		FA2091AF23FC9DD900D49904 /* EarthHeader.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EarthHeader.swift; sourceTree = "<group>"; };
+		FA2091B023FC9DD900D49904 /* TimeFactor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimeFactor.swift; sourceTree = "<group>"; };
+		FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfEarthController.swift; sourceTree = "<group>"; };
+		FA2091B723FD584200D49904 /* RayOfExitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfExitController.swift; sourceTree = "<group>"; };
+		FA956E7123FEB05B002A76C7 /* RayOfHumanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfHumanController.swift; sourceTree = "<group>"; };
+		FA956E7323FF4116002A76C7 /* HumanHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanHeader.swift; sourceTree = "<group>"; };
+		FA956E7523FF4131002A76C7 /* ReturnHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnHeader.swift; sourceTree = "<group>"; };
+		FA956E7723FF433E002A76C7 /* ExitHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExitHeader.swift; sourceTree = "<group>"; };
+		FA956E792409277B002A76C7 /* ResultsController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsController.swift; sourceTree = "<group>"; };
+		FA956E7B24095736002A76C7 /* ResultsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsCell.swift; sourceTree = "<group>"; };
+		FA956E7F24099E6D002A76C7 /* ResultsHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsHeader.swift; sourceTree = "<group>"; };
 		FACEE30423FC6F0500DD8C23 /* RayNutrition_1.0.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = RayNutrition_1.0.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FACEE30723FC6F0500DD8C23 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FACEE30923FC6F0500DD8C23 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -24,6 +55,9 @@
 		FACEE31023FC6F0A00DD8C23 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FACEE31323FC6F0A00DD8C23 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FACEE31523FC6F0A00DD8C23 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FACEE32123FC75B700DD8C23 /* Extensions.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FACEE32223FC75B700DD8C23 /* Utilities.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Utilities.swift; sourceTree = "<group>"; };
+		FACEE32523FC775900DD8C23 /* MenuBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuBar.swift; path = ../../../RayNutrition/RayNutrition/Controller/MenuBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -37,6 +71,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		FA2091AA23FC8E0800D49904 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				FA2091AB23FC8E6C00D49904 /* RayOfReturn.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
 		FACEE2FB23FC6F0500DD8C23 = {
 			isa = PBXGroup;
 			children = (
@@ -56,15 +98,48 @@
 		FACEE30623FC6F0500DD8C23 /* RayNutrition_1.0 */ = {
 			isa = PBXGroup;
 			children = (
+				FA2091AA23FC8E0800D49904 /* Model */,
+				FACEE31D23FC738E00DD8C23 /* Controller */,
+				FACEE32023FC75AD00DD8C23 /* Helpers */,
 				FACEE30723FC6F0500DD8C23 /* AppDelegate.swift */,
 				FACEE30923FC6F0500DD8C23 /* SceneDelegate.swift */,
-				FACEE30B23FC6F0500DD8C23 /* ViewController.swift */,
 				FACEE30D23FC6F0500DD8C23 /* Main.storyboard */,
 				FACEE31023FC6F0A00DD8C23 /* Assets.xcassets */,
 				FACEE31223FC6F0A00DD8C23 /* LaunchScreen.storyboard */,
 				FACEE31523FC6F0A00DD8C23 /* Info.plist */,
 			);
 			path = RayNutrition_1.0;
+			sourceTree = "<group>";
+		};
+		FACEE31D23FC738E00DD8C23 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FACEE30B23FC6F0500DD8C23 /* ViewController.swift */,
+				FA2091AD23FC8EEE00D49904 /* RayCell.swift */,
+				FA956E7B24095736002A76C7 /* ResultsCell.swift */,
+				FA2091AF23FC9DD900D49904 /* EarthHeader.swift */,
+				FA956E7323FF4116002A76C7 /* HumanHeader.swift */,
+				FA956E7523FF4131002A76C7 /* ReturnHeader.swift */,
+				FA956E7723FF433E002A76C7 /* ExitHeader.swift */,
+				FA956E7F24099E6D002A76C7 /* ResultsHeader.swift */,
+				FA2091B023FC9DD900D49904 /* TimeFactor.swift */,
+				FACEE32523FC775900DD8C23 /* MenuBar.swift */,
+				FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */,
+				FA956E7123FEB05B002A76C7 /* RayOfHumanController.swift */,
+				FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */,
+				FA2091B723FD584200D49904 /* RayOfExitController.swift */,
+				FA956E792409277B002A76C7 /* ResultsController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FACEE32023FC75AD00DD8C23 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				FACEE32123FC75B700DD8C23 /* Extensions.swift */,
+				FACEE32223FC75B700DD8C23 /* Utilities.swift */,
+			);
+			path = Helpers;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -138,9 +213,26 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA2091B423FD56CC00D49904 /* RayOfEarthController.swift in Sources */,
+				FA2091B823FD584200D49904 /* RayOfExitController.swift in Sources */,
+				FA2091AC23FC8E6C00D49904 /* RayOfReturn.swift in Sources */,
+				FA956E7223FEB05B002A76C7 /* RayOfHumanController.swift in Sources */,
+				FACEE32423FC75B700DD8C23 /* Utilities.swift in Sources */,
+				FACEE32323FC75B700DD8C23 /* Extensions.swift in Sources */,
+				FA2091A923FC8DAC00D49904 /* RayOfReturnController.swift in Sources */,
+				FA2091B223FC9DD900D49904 /* TimeFactor.swift in Sources */,
+				FA956E7A2409277E002A76C7 /* ResultsController.swift in Sources */,
 				FACEE30C23FC6F0500DD8C23 /* ViewController.swift in Sources */,
 				FACEE30823FC6F0500DD8C23 /* AppDelegate.swift in Sources */,
+				FACEE32723FC775900DD8C23 /* MenuBar.swift in Sources */,
+				FA2091AE23FC8EEE00D49904 /* RayCell.swift in Sources */,
+				FA956E7C24095736002A76C7 /* ResultsCell.swift in Sources */,
 				FACEE30A23FC6F0500DD8C23 /* SceneDelegate.swift in Sources */,
+				FA956E7823FF433E002A76C7 /* ExitHeader.swift in Sources */,
+				FA956E7423FF4116002A76C7 /* HumanHeader.swift in Sources */,
+				FA956E7623FF4131002A76C7 /* ReturnHeader.swift in Sources */,
+				FA2091B123FC9DD900D49904 /* EarthHeader.swift in Sources */,
+				FA956E8024099E6D002A76C7 /* ResultsHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -287,6 +379,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3V47U7LZ7D;
 				INFOPLIST_FILE = RayNutrition_1.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -305,6 +398,7 @@
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 3V47U7LZ7D;
 				INFOPLIST_FILE = RayNutrition_1.0/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
