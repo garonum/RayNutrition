@@ -9,6 +9,8 @@
 import UIKit
 
 class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
+    let o = RayOfEarthController()
+    
     let dataArray = ["От 1 с - до 5 мин", "От 5 мин - до 20 мин", "От 20 мин - до 1 ч", "От 1 ч - до 2 ч", "От 2 ч - до 6 ч", "От 6 ч - до 24 ч", "От 1 дня - до 2 дней", "От 2 дней - до 5 дней", "От 5 дней - до 7 дней", "От 1 недели - до 1 месяца", "От 1 месяца - до 6 мес.", "От 6 мес - до 12 мес", "более года"]
       func numberOfComponents(in pickerView: UIPickerView) -> Int {
          return 1
@@ -63,6 +65,31 @@ class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     var titleLabelHeightConstraint: NSLayoutConstraint?
     
+    func setupButton(){
+           let button = UIButton.init(type: .system)
+                  button.frame = CGRect(x: 50.0, y: 75.0, width: 200.0, height: 52.0)
+                  button.layer.borderWidth = 5.0
+                  button.layer.borderColor = UIColor.white.cgColor
+                  button.backgroundColor = UIColor.green
+                  button.titleLabel?.textColor = UIColor.black
+                  button.tintColor = UIColor.white
+                  button.layer.cornerRadius = 15.0
+                   button.setTitle("Добавить", for: .normal)
+                   button.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
+            addSubview(button)
+       }
+       @objc func buttonClicked() {
+           print("Button Clicked")
+        //self.collectionView.reloadData()
+        
+        o.oneMore()
+            
+        o.reloading()
+        o.printing()
+        
+        
+       }
+    
     override func setupViews() {
         
        
@@ -74,6 +101,8 @@ class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
            gradeTextField.inputView = UIPicker
            gradeTextField.text = dataArray[0]
 
+        setupButton()
+        
         
         
     }

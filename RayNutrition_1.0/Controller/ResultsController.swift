@@ -10,6 +10,7 @@ import UIKit
 
 class ResultsController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     let imageNames = ["home", "trending", "subscriptions", "account", "results"]
+    
     var slices: [RayOfRays] = {
 
         

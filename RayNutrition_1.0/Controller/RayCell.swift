@@ -24,18 +24,20 @@ class BaseCell: UICollectionViewCell {
 }
 
 class RayCell: BaseCell {
-    let cv = 
+    
     var rayOfReturn: RayOfRays? {
         didSet {
             
             titleLabel.text = rayOfReturn?.productsName
             platName.text = rayOfReturn?.platName
             directionOfObservation.text = rayOfReturn?.directionOfObservation
-
+            
+                       
             
         }
     }
-    
+    var test : [Int: Int] = [:]
+    var row: Int = 0
     let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
@@ -72,19 +74,14 @@ class RayCell: BaseCell {
     
     override func setupViews() {
         addSubview(separatorView)
-     
         addSubview(titleLabel)
         addSubview(platName)
         addSubview(directionOfObservation)
-
-        
+    
         addConstraintsWithFormat("H:|[v0]|", views: separatorView)
         addConstraintsWithFormat("H:|-15-[v0]|", views: titleLabel)
         addConstraintsWithFormat("H:|-15-[v0]|", views: platName)
         addConstraintsWithFormat("H:|-15-[v0]|", views: directionOfObservation)
-        
-        
-        
 
         addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
         addConstraint(NSLayoutConstraint(item: platName, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 70))
@@ -95,8 +92,19 @@ class RayCell: BaseCell {
        didSet {
          //directionOfObservation.layer.borderWidth = isSelected ? 10 : 0
         self.backgroundColor = isSelected ? UIColor.white : UIColor.yellow
-        print()
         
+        if isSelected {
+            //test[] = 1
+            print(row)
+          
+           // resulOfAllRays[3] = 11
+            
+//            print(rayOfReturn?.platName! ?? "")
+//            print(self.isSelected)
+        }else{
+         //   print("I print")
+        }
+        //print(self.isSelected)
        }
      }
    func getIndexPathFor(view: UIView, collectionView: UICollectionView) -> NSIndexPath? {
