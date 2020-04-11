@@ -10,34 +10,34 @@ import UIKit
 
 class RayOfHumanController: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
     
-    var slices: [RayOfRays] = {
+    var slices: [Slice] = {
          
-         var sixthSlice = RayOfRays()
+         var sixthSlice = Slice()
          sixthSlice.productsName = "Взбитое, отжатое, замороженное"
          sixthSlice.platName = "Закон Разума"
          sixthSlice.directionOfObservation = "Знаки"
          
-         var fiveSlice = RayOfRays()
+         var fiveSlice = Slice()
          fiveSlice.productsName = "Пареное"
          fiveSlice.platName = "Закон отображения"
          fiveSlice.directionOfObservation = "Подсветки"
          
-         var fourthSlice = RayOfRays()
+         var fourthSlice = Slice()
          fourthSlice.productsName = "Варёное"
          fourthSlice.platName = "Закон отражения"
          fourthSlice.directionOfObservation = "Подсказки"
          
-         var thirdSlice = RayOfRays()
+         var thirdSlice = Slice()
          thirdSlice.productsName = "Печеное"
          thirdSlice.platName = "Закон выхода-возврата"
          thirdSlice.directionOfObservation = "Причины"
          
-         var secondSlice = RayOfRays()
+         var secondSlice = Slice()
          secondSlice.productsName = "Гриль, копченое"
          secondSlice.platName = "Закон легализации"
          secondSlice.directionOfObservation = "Процессы"
          
-         var firstSlice = RayOfRays()
+         var firstSlice = Slice()
          firstSlice.productsName = "Жареноое"
          firstSlice.platName = "Закон замещения"
          firstSlice.directionOfObservation = "Следствия"

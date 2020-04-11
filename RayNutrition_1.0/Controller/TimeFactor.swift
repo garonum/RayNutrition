@@ -27,7 +27,7 @@ class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
          gradeTextField.text = dataArray[row]
          self.endEditing(true)
      }
-    var rayOfReturn: RayOfRays? {
+    var rayOfReturn: Slice? {
         didSet {
 //            titleLabel.text = rayOfReturn?.productsName
 //            platName.text = rayOfReturn?.platName
@@ -79,13 +79,14 @@ class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
             addSubview(button)
        }
        @objc func buttonClicked() {
-           print("Button Clicked")
+          // print("Button Clicked")
         //self.collectionView.reloadData()
         
-        o.oneMore()
+        //o.oneMore()
             
-        o.reloading()
-        o.printing()
+        //o.reloading()
+        //o.printing()
+        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
         
         
        }

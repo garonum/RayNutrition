@@ -8,7 +8,7 @@
 
 import UIKit
 
-class RayOfRays: NSObject {
+class Slice: NSObject {
     
     //var thumbnailImageName: String?
     var productsName: String?

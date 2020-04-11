@@ -15,6 +15,8 @@
 		FA2091B423FD56CC00D49904 /* RayOfEarthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */; };
 		FA2091B823FD584200D49904 /* RayOfExitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091B723FD584200D49904 /* RayOfExitController.swift */; };
 		FA54075024237FB00021FAD7 /* RaysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA54074F24237FB00021FAD7 /* RaysData.swift */; };
+		FA76A565243FAECE00EA8F2A /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A564243FAECE00EA8F2A /* Ray.swift */; };
+		FA76A567243FAF6700EA8F2A /* RayElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A566243FAF6700EA8F2A /* RayElements.swift */; };
 		FA956E7223FEB05B002A76C7 /* RayOfHumanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7123FEB05B002A76C7 /* RayOfHumanController.swift */; };
 		FA956E7423FF4116002A76C7 /* HumanHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7323FF4116002A76C7 /* HumanHeader.swift */; };
 		FA956E7623FF4131002A76C7 /* ReturnHeader.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA956E7523FF4131002A76C7 /* ReturnHeader.swift */; };
@@ -42,6 +44,8 @@
 		FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfEarthController.swift; sourceTree = "<group>"; };
 		FA2091B723FD584200D49904 /* RayOfExitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfExitController.swift; sourceTree = "<group>"; };
 		FA54074F24237FB00021FAD7 /* RaysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaysData.swift; sourceTree = "<group>"; };
+		FA76A564243FAECE00EA8F2A /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
+		FA76A566243FAF6700EA8F2A /* RayElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayElements.swift; sourceTree = "<group>"; };
 		FA956E7123FEB05B002A76C7 /* RayOfHumanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfHumanController.swift; sourceTree = "<group>"; };
 		FA956E7323FF4116002A76C7 /* HumanHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HumanHeader.swift; sourceTree = "<group>"; };
 		FA956E7523FF4131002A76C7 /* ReturnHeader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ReturnHeader.swift; sourceTree = "<group>"; };
@@ -126,12 +130,14 @@
 				FA956E7F24099E6D002A76C7 /* ResultsHeader.swift */,
 				FA2091B023FC9DD900D49904 /* TimeFactor.swift */,
 				FACEE32523FC775900DD8C23 /* MenuBar.swift */,
+				FA76A564243FAECE00EA8F2A /* Ray.swift */,
 				FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */,
 				FA956E7123FEB05B002A76C7 /* RayOfHumanController.swift */,
 				FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */,
 				FA2091B723FD584200D49904 /* RayOfExitController.swift */,
 				FA956E792409277B002A76C7 /* ResultsController.swift */,
 				FA54074F24237FB00021FAD7 /* RaysData.swift */,
+				FA76A566243FAF6700EA8F2A /* RayElements.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -220,6 +226,7 @@
 				FA2091B823FD584200D49904 /* RayOfExitController.swift in Sources */,
 				FA2091AC23FC8E6C00D49904 /* RayOfReturn.swift in Sources */,
 				FA956E7223FEB05B002A76C7 /* RayOfHumanController.swift in Sources */,
+				FA76A567243FAF6700EA8F2A /* RayElements.swift in Sources */,
 				FACEE32423FC75B700DD8C23 /* Utilities.swift in Sources */,
 				FACEE32323FC75B700DD8C23 /* Extensions.swift in Sources */,
 				FA2091A923FC8DAC00D49904 /* RayOfReturnController.swift in Sources */,
@@ -236,6 +243,7 @@
 				FA956E7423FF4116002A76C7 /* HumanHeader.swift in Sources */,
 				FA956E7623FF4131002A76C7 /* ReturnHeader.swift in Sources */,
 				FA2091B123FC9DD900D49904 /* EarthHeader.swift in Sources */,
+				FA76A565243FAECE00EA8F2A /* Ray.swift in Sources */,
 				FA956E8024099E6D002A76C7 /* ResultsHeader.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

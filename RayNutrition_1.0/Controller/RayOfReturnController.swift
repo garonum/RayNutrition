@@ -10,39 +10,39 @@ import UIKit
 
 class RayOfReturnController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
 
-    var slices: [RayOfRays] = {
-        var seventhSlice = RayOfRays()
+    var slices: [Slice] = {
+        var seventhSlice = Slice()
         seventhSlice.productsName = "Семена"
         seventhSlice.platName = "Плат Эффект"
         seventhSlice.directionOfObservation = "ЫЙИ-нить"
         //seventhSlice.numberOfViews = 57989654934
         
-        var sixthSlice = RayOfRays()
+        var sixthSlice = Slice()
         sixthSlice.productsName = "Зерна"
         sixthSlice.platName = "Плат Вселенский"
         sixthSlice.directionOfObservation = "Ритмологический рисунок из ЫЙИ"
         
-        var fiveSlice = RayOfRays()
+        var fiveSlice = Slice()
         fiveSlice.productsName = "Плоды"
         fiveSlice.platName = "Плат Знаний"
         fiveSlice.directionOfObservation = "Книга Озаригн"
         
-        var fourthSlice = RayOfRays()
+        var fourthSlice = Slice()
         fourthSlice.productsName = "Цветы, мед"
         fourthSlice.platName = "Плат Любви"
         fourthSlice.directionOfObservation = "Книга Радастея"
         
-        var thirdSlice = RayOfRays()
+        var thirdSlice = Slice()
         thirdSlice.productsName = "Листья"
         thirdSlice.platName = "Плат Славы"
         thirdSlice.directionOfObservation = "Книга Ирлем"
         
-        var secondSlice = RayOfRays()
+        var secondSlice = Slice()
         secondSlice.productsName = "Стебель"
         secondSlice.platName = "Плат Денег"
         secondSlice.directionOfObservation = "Ритмический рисунок из ЫЙИ"
         
-        var firstSlice = RayOfRays()
+        var firstSlice = Slice()
         firstSlice.productsName = "Корень"
         firstSlice.platName = "Плат Стыда"
         firstSlice.directionOfObservation = "ЫЙИ"

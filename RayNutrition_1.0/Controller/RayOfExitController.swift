@@ -10,51 +10,51 @@ import UIKit
 
 class RayOfExitController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
 
-    var slices: [RayOfRays] = {
+    var slices: [Slice] = {
 
         
-        var ninthSlice = RayOfRays()
+        var ninthSlice = Slice()
         ninthSlice.productsName = "Семена"
         ninthSlice.platName = "Плат Эффект"
         ninthSlice.directionOfObservation = "ЫЙИ-нить"
         
-        var eighthSlice = RayOfRays()
+        var eighthSlice = Slice()
         eighthSlice.productsName = "Семена"
         eighthSlice.platName = "Плат Эффект"
         eighthSlice.directionOfObservation = "ЫЙИ-нить"
         
-        var seventhSlice = RayOfRays()
+        var seventhSlice = Slice()
         seventhSlice.productsName = "Семена"
         seventhSlice.platName = "Плат Эффект"
         seventhSlice.directionOfObservation = "ЫЙИ-нить"
         //seventhSlice.numberOfViews = 57989654934
         
-        var sixthSlice = RayOfRays()
+        var sixthSlice = Slice()
         sixthSlice.productsName = "Зерна"
         sixthSlice.platName = "Плат Вселенский"
         sixthSlice.directionOfObservation = "Ритмологический рисунок из ЫЙИ"
         
-        var fiveSlice = RayOfRays()
+        var fiveSlice = Slice()
         fiveSlice.productsName = "Плоды"
         fiveSlice.platName = "Плат Знаний"
         fiveSlice.directionOfObservation = "Книга Озаригн"
         
-        var fourthSlice = RayOfRays()
+        var fourthSlice = Slice()
         fourthSlice.productsName = "Цветы, мед"
         fourthSlice.platName = "Плат Любви"
         fourthSlice.directionOfObservation = "Книга Радастея"
         
-        var thirdSlice = RayOfRays()
+        var thirdSlice = Slice()
         thirdSlice.productsName = "Листья"
         thirdSlice.platName = "Плат Славы"
         thirdSlice.directionOfObservation = "Книга Ирлем"
         
-        var secondSlice = RayOfRays()
+        var secondSlice = Slice()
         secondSlice.productsName = "Стебель"
         secondSlice.platName = "Плат Денег"
         secondSlice.directionOfObservation = "Ритмический рисунок из ЫЙИ"
         
-        var firstSlice = RayOfRays()
+        var firstSlice = Slice()
         firstSlice.productsName = "Корень"
         firstSlice.platName = "Плат Стыда"
         firstSlice.directionOfObservation = "ЫЙИ"
