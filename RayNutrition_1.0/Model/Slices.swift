@@ -8,7 +8,7 @@
 
 import UIKit
 
-class Slice: NSObject {
+class Slices: NSObject {
     
     //var thumbnailImageName: String?
     var productsName: String?

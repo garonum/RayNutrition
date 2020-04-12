@@ -11,44 +11,32 @@ import UIKit
 class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     let cellId = "cellId"
-    //private var rays:[A_Rays] = []
-    
-    //let flickrPhoto = FlickrPhoto(photoID: photoID, farm: farm, server: server, secret: secret)
-    
-    let test = RayElements(rayName: "Фрукты, ягоды, сметана", className: "Звездный План", obj: "Будущее")
-   
-    
-//    func insertRay(at indexPath: IndexPath) {
-//      //searches[indexPath.section].searchResults.insert(flickrPhoto, at: indexPath.row)
-//        rays[indexPath.section].ray.insert(test, at: indexPath.row)
-//
-//        print(rays)
-//    }
-    
+    let rayOfEarth = Rays(rayName: "r")
+   // let rayOfEarth: Rays? = nil
     var slices: [Ray] = {
         
-        var fourth = Slice()
+        var fourth = Slices()
         fourth.productsName = "Фрукты, ягоды, сметана"
         fourth.platName = "Звездный План"
         fourth.directionOfObservation = "Будущее"
         
-        var third = Slice()
+        var third = Slices()
         third.productsName = "Овощи, сливочное масло"
         third.platName = "План Солнца"
         third.directionOfObservation = "Настоящее"
         
-        var second = Slice()
+        var second = Slices()
         second.productsName = "Растительный белок, растительное масло"
         second.platName = "План Человека"
         second.directionOfObservation = "Прошлое"
         
-        var first = Slice()
+        var first = Slices()
         first.productsName = "Белок(Рыба, морепродукты), рыбий жир)"
         first.platName = "План Земли"
         first.directionOfObservation = "Подсказки"
         
         //sixthSlice.numberOfViews = 57989654934
-        let ray = Ray(slices1: [fourth, third, second, first ])
+        let ray = Ray(slices: [fourth, third, second, first ])
         return [ray]
     }()
         
@@ -86,7 +74,7 @@ class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionVie
         
         
          //let x = [slices,slices1]
-        //let r = A_Rays(ray:[test])
+        
         //rays.insert(rays.ray, at: <#T##Int#>)
         addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
@@ -118,14 +106,15 @@ extension RayOfEarthController {
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return slices[0].slices1.count
+        return rayOfEarth.slices.count
         }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! RayCell
-        //print(slices.count)
+        //print(rayOfEarth.amount)
+        
                     cell.backgroundColor = UIColor.yellow
-        cell.rayOfReturn = slices[0].slices1[indexPath.row]
+        cell.rayOfReturn = slices[0].slices[indexPath.row]
                     cell.row = indexPath.item
                     
                     cell.contentView.layer.cornerRadius = 2.0

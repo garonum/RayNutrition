@@ -27,7 +27,7 @@ class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
          gradeTextField.text = dataArray[row]
          self.endEditing(true)
      }
-    var rayOfReturn: Slice? {
+    var rayOfReturn: Slices? {
         didSet {
 //            titleLabel.text = rayOfReturn?.productsName
 //            platName.text = rayOfReturn?.platName

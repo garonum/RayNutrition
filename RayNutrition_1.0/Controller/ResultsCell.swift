@@ -10,7 +10,7 @@ import UIKit
 
 class ResultsCell: BaseCell {
     
-    var rayOfReturn: Slice? {
+    var rayOfReturn: Slices? {
         didSet {
             
             titleLabel.text = rayOfReturn?.productsName

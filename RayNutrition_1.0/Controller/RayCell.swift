@@ -25,7 +25,7 @@ class BaseCell: UICollectionViewCell {
 
 class RayCell: BaseCell {
     
-    var rayOfReturn: Slice? {
+    var rayOfReturn: Slices? {
         didSet {
             
             titleLabel.text = rayOfReturn?.productsName

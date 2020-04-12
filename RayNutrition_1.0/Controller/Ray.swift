@@ -9,5 +9,5 @@
 import Foundation
 
 struct Ray {
-  var slices1: [Slice]
+  var slices: [Slices]
 }
