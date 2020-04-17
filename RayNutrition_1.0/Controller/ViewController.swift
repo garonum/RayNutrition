@@ -37,11 +37,6 @@ class ViewController: UIViewController, UICollectionViewDataSource {
        
     let titles = ["Home1", "Home2", "Home3", "Home4",]
     
-    
-
-   
-            
-   
 
    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
        let index = Int(targetContentOffset.pointee.x / view.frame.width)

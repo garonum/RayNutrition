@@ -9,43 +9,9 @@
 import UIKit
 
 class RayOfHumanController: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
-    
-    var slices: [Slices] = {
-         
-         var sixthSlice = Slices()
-         sixthSlice.productsName = "Взбитое, отжатое, замороженное"
-         sixthSlice.platName = "Закон Разума"
-         sixthSlice.directionOfObservation = "Знаки"
-         
-         var fiveSlice = Slices()
-         fiveSlice.productsName = "Пареное"
-         fiveSlice.platName = "Закон отображения"
-         fiveSlice.directionOfObservation = "Подсветки"
-         
-         var fourthSlice = Slices()
-         fourthSlice.productsName = "Варёное"
-         fourthSlice.platName = "Закон отражения"
-         fourthSlice.directionOfObservation = "Подсказки"
-         
-         var thirdSlice = Slices()
-         thirdSlice.productsName = "Печеное"
-         thirdSlice.platName = "Закон выхода-возврата"
-         thirdSlice.directionOfObservation = "Причины"
-         
-         var secondSlice = Slices()
-         secondSlice.productsName = "Гриль, копченое"
-         secondSlice.platName = "Закон легализации"
-         secondSlice.directionOfObservation = "Процессы"
-         
-         var firstSlice = Slices()
-         firstSlice.productsName = "Жареноое"
-         firstSlice.platName = "Закон замещения"
-         firstSlice.directionOfObservation = "Следствия"
-         
-         //sixthSlice.numberOfViews = 57989654934
-         
-         return [sixthSlice, fiveSlice, fourthSlice, thirdSlice, secondSlice, firstSlice ]
-     }()
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    let rayName = "Луч Человека"
+    let rayOfHuman = Rays(rayName: "Луч Человека")
     
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -57,64 +23,89 @@ class RayOfHumanController: BaseCell, UICollectionViewDataSource, UICollectionVi
         return cv
     }()
     
-    let cellId = "cellId"
-    
     override func setupViews() {
         super.setupViews()
         addSubview(collectionView)
         addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
         
-        collectionView.register(RayCell.self, forCellWithReuseIdentifier: cellId)
+        collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
         collectionView.register(HumanHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
-         collectionView.register(TimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+         collectionView.register(HTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
         
         collectionView.backgroundColor = UIColor.green
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: rayName), object: nil)
     }
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           return slices.count
-       }
-       
-   func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! RayCell
-                  cell.backgroundColor = UIColor.yellow
-                  cell.rayOfReturn = slices[indexPath.item]
-           
-           cell.contentView.layer.cornerRadius = 2.0
-              cell.contentView.layer.borderWidth = 1.0
-              cell.contentView.layer.borderColor = UIColor.clear.cgColor
-              cell.contentView.layer.masksToBounds = true;
-
-              cell.layer.shadowColor = UIColor.lightGray.cgColor
-              cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
-              cell.layer.shadowRadius = 2.0
-              cell.layer.shadowOpacity = 1.0
-              cell.layer.masksToBounds = false;
-              cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
-              
-               return cell
-   }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return CGSize(width: self.frame.width-80, height: 80)
+    @objc func loadList(notification: NSNotification) {
+         rayOfHuman.oneMore(nameOfRays: rayName)
+      self.collectionView.reloadData()
+     
     }
-    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-         
-         if kind == UICollectionView.elementKindSectionHeader {
-             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
-             header.backgroundColor = .blue
-             return header
-         } else {
-             let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
-             footer.backgroundColor = .green
-             return footer
-         }
-     }
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-          return CGSize(width: self.frame.width, height: 50)
-      }
-      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-          return CGSize(width: self.frame.width, height: 100)
-      }
     
 }
 
+extension RayOfHumanController {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return rayOfHuman.amount(nameOfRays: rayName)
+       }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+           return rayOfHuman.slices.count
+          }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
+                    cell.backgroundColor = UIColor.yellow
+                  cell.rayOfReturn = rayOfHuman.slices[indexPath.item]
+             
+             cell.contentView.layer.cornerRadius = 2.0
+                cell.contentView.layer.borderWidth = 1.0
+                cell.contentView.layer.borderColor = UIColor.clear.cgColor
+                cell.contentView.layer.masksToBounds = true;
+
+                cell.layer.shadowColor = UIColor.lightGray.cgColor
+                cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
+                cell.layer.shadowRadius = 2.0
+                cell.layer.shadowOpacity = 1.0
+                cell.layer.masksToBounds = false;
+                cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+                
+                 return cell
+     }
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+      return sectionInsets
+    }
+    
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+      return sectionInsets.left
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return CGSize(width: self.frame.width-80, height: 80)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+            
+            if kind == UICollectionView.elementKindSectionHeader {
+                let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+                header.backgroundColor = .blue
+                return header
+            } else {
+                let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+                footer.backgroundColor = .green
+                return footer
+            }
+        }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+             return CGSize(width: self.frame.width, height: 50)
+         }
+         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+             return CGSize(width: self.frame.width, height: 100)
+         }
+}

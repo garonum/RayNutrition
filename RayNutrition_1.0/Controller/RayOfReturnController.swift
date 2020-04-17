@@ -9,48 +9,10 @@
 import UIKit
 
 class RayOfReturnController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-
-    var slices: [Slices] = {
-        var seventhSlice = Slices()
-        seventhSlice.productsName = "Семена"
-        seventhSlice.platName = "Плат Эффект"
-        seventhSlice.directionOfObservation = "ЫЙИ-нить"
-        //seventhSlice.numberOfViews = 57989654934
-        
-        var sixthSlice = Slices()
-        sixthSlice.productsName = "Зерна"
-        sixthSlice.platName = "Плат Вселенский"
-        sixthSlice.directionOfObservation = "Ритмологический рисунок из ЫЙИ"
-        
-        var fiveSlice = Slices()
-        fiveSlice.productsName = "Плоды"
-        fiveSlice.platName = "Плат Знаний"
-        fiveSlice.directionOfObservation = "Книга Озаригн"
-        
-        var fourthSlice = Slices()
-        fourthSlice.productsName = "Цветы, мед"
-        fourthSlice.platName = "Плат Любви"
-        fourthSlice.directionOfObservation = "Книга Радастея"
-        
-        var thirdSlice = Slices()
-        thirdSlice.productsName = "Листья"
-        thirdSlice.platName = "Плат Славы"
-        thirdSlice.directionOfObservation = "Книга Ирлем"
-        
-        var secondSlice = Slices()
-        secondSlice.productsName = "Стебель"
-        secondSlice.platName = "Плат Денег"
-        secondSlice.directionOfObservation = "Ритмический рисунок из ЫЙИ"
-        
-        var firstSlice = Slices()
-        firstSlice.productsName = "Корень"
-        firstSlice.platName = "Плат Стыда"
-        firstSlice.directionOfObservation = "ЫЙИ"
-        
-        //sixthSlice.numberOfViews = 57989654934
-        
-        return [seventhSlice, sixthSlice, fiveSlice, fourthSlice, thirdSlice, secondSlice, firstSlice ]
-    }()
+    
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    let rayName = "Луч Возврата"
+    let rayOfReturn = Rays(rayName: "Луч Возврата")
     
     lazy var collectionView: UICollectionView = {
            let layout = UICollectionViewFlowLayout()
@@ -62,7 +24,7 @@ class RayOfReturnController:BaseCell, UICollectionViewDataSource, UICollectionVi
            return cv
        }()
        
-       let cellId = "cellId"
+       
        
        override func setupViews() {
            super.setupViews()
@@ -70,25 +32,37 @@ class RayOfReturnController:BaseCell, UICollectionViewDataSource, UICollectionVi
            addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
            addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
            
-           collectionView.register(RayCell.self, forCellWithReuseIdentifier: cellId)
+           collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
            collectionView.register(ReturnHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
-            collectionView.register(TimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+            collectionView.register(RTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
            
            collectionView.backgroundColor = UIColor.green
-       }
+              
+            NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: rayName), object: nil)
+             }
+    
+             @objc func loadList(notification: NSNotification) {
+                  rayOfReturn.oneMore(nameOfRays: rayName)
+               self.collectionView.reloadData()
+              
+             }
 
 
 }
 
 extension RayOfReturnController {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+     return rayOfReturn.amount(nameOfRays: rayName)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return slices.count
+        return rayOfReturn.slices.count
         }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! RayCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
                    cell.backgroundColor = UIColor.yellow
-                   cell.rayOfReturn = slices[indexPath.item]
+            cell.rayOfReturn = rayOfReturn.slices[indexPath.item]
             
             cell.contentView.layer.cornerRadius = 2.0
                cell.contentView.layer.borderWidth = 1.0
@@ -126,3 +100,4 @@ extension RayOfReturnController {
            return CGSize(width: self.frame.width, height: 100)
        }
 }
+

@@ -8,7 +8,7 @@
 
 import UIKit
 
-class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
+class ExTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
   
     let o = RayOfEarthController()
     
@@ -86,7 +86,7 @@ class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
        }
        @objc func buttonClicked() {
       
-        NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
+        NotificationCenter.default.post(name: NSNotification.Name("Луч Выхода"), object: nil)
         
        }
     

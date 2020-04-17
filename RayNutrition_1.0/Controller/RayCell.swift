@@ -36,8 +36,12 @@ class RayCell: BaseCell {
             
         }
     }
+    
+    var result = Result()
     var test : [Int: Int] = [:]
     var row: Int = 0
+    var section: Int = 0
+    var rayName: String = ""
     let separatorView: UIView = {
         let view = UIView()
         view.backgroundColor = UIColor(red: 230/255, green: 230/255, blue: 230/255, alpha: 1)
@@ -94,17 +98,13 @@ class RayCell: BaseCell {
         self.backgroundColor = isSelected ? UIColor.white : UIColor.yellow
         
         if isSelected {
-            //test[] = 1
-            print(row)
-          
-           // resulOfAllRays[3] = 11
-            
-//            print(rayOfReturn?.platName! ?? "")
-//            print(self.isSelected)
+    
+           result.saveRayCoefficient(rayName: rayName, rowNumber: row, sectionNumber: section)
+         
         }else{
          //   print("I print")
         }
-        //print(self.isSelected)
+        
        }
      }
    func getIndexPathFor(view: UIView, collectionView: UICollectionView) -> NSIndexPath? {
