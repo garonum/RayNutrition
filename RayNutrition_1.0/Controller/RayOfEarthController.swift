@@ -12,34 +12,6 @@ class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionVie
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     let cellId = "cellId"
     let rayOfEarth = Rays(rayName: "r")
-   // let rayOfEarth: Rays? = nil
-    var slices: [Ray] = {
-        
-        var fourth = Slices()
-        fourth.productsName = "Фрукты, ягоды, сметана"
-        fourth.platName = "Звездный План"
-        fourth.directionOfObservation = "Будущее"
-        
-        var third = Slices()
-        third.productsName = "Овощи, сливочное масло"
-        third.platName = "План Солнца"
-        third.directionOfObservation = "Настоящее"
-        
-        var second = Slices()
-        second.productsName = "Растительный белок, растительное масло"
-        second.platName = "План Человека"
-        second.directionOfObservation = "Прошлое"
-        
-        var first = Slices()
-        first.productsName = "Белок(Рыба, морепродукты), рыбий жир)"
-        first.platName = "План Земли"
-        first.directionOfObservation = "Подсказки"
-        
-        //sixthSlice.numberOfViews = 57989654934
-        let ray = Ray(slices: [fourth, third, second, first ])
-        return [ray]
-    }()
-        
    
    lazy var collectionView: UICollectionView = {
          let layout = UICollectionViewFlowLayout()
@@ -50,36 +22,14 @@ class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionVie
          cv.delegate = self
          return cv
      }()
-   
-    
-   public func reloading(){
-//       slices.insert(slices[0], at: 0)
-//    print(slices.count)
-//        self.collectionView.reloadData()
-    }
-    
-    func oneMore(){
-        slices.insert(slices[0], at: 0)
-        //slices.insert(slices[0], at: 0)
-    }
-    
-    func printing(){
-        //print(slices.count)
-    }
      
      override func setupViews() {
          super.setupViews()
          addSubview(collectionView)
         
-        
-        
-         //let x = [slices,slices1]
-        
-        //rays.insert(rays.ray, at: <#T##Int#>)
         addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
         
-         
 //        collectionView.register(SupView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: "someRandonIdentifierString")
         collectionView.register(SupView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: "someRandonIdentifierString")
          collectionView.register(RayCell.self, forCellWithReuseIdentifier: cellId)
@@ -89,24 +39,24 @@ class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionVie
          collectionView.backgroundColor = UIColor.green
         
         
-        NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: "load"), object: nil)
      }
-   @objc func loadList(notification: NSNotification) {
-        oneMore()
-     self.collectionView.reloadData()
-    
-   }
+//   @objc func loadList(notification: NSNotification) {
+//        oneMore()
+//     self.collectionView.reloadData()
+//
+//   }
 
 }
 
 extension RayOfEarthController {
     
      func numberOfSections(in collectionView: UICollectionView) -> Int {
-        return slices.count
+        return rayOfEarth.ray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rayOfEarth.slices.count
+        return rayOfEarth.ray.
         }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -114,7 +64,7 @@ extension RayOfEarthController {
         //print(rayOfEarth.amount)
         
                     cell.backgroundColor = UIColor.yellow
-        cell.rayOfReturn = slices[0].slices[indexPath.row]
+        cell.rayOfReturn = rayOfEarth.
                     cell.row = indexPath.item
                     
                     cell.contentView.layer.cornerRadius = 2.0
@@ -178,6 +128,32 @@ extension RayOfEarthController {
     
      
      
+}
+
+extension RayOfEarthController{
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        self.backgroundColor = UIColor.white
+//      guard sharing else {
+//        return
+//      }
+//
+//      let flickrPhoto = photo(for: indexPath)
+//      selectedPhotos.append(flickrPhoto)
+//      updateSharedPhotoCountLabel()
+    }
+    
+     func collectionView(_ collectionView: UICollectionView, didDeselectItemAt indexPath: IndexPath) {
+        self.backgroundColor = UIColor.yellow
+//      guard sharing else {
+//        return
+//      }
+      
+//      let flickrPhoto = photo(for: indexPath)
+//      if let index = selectedPhotos.firstIndex(of: flickrPhoto) {
+//        selectedPhotos.remove(at: index)
+//        updateSharedPhotoCountLabel()
+//      }
+    }
 }
 class SupView: UICollectionReusableView {
 

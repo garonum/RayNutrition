@@ -10,8 +10,8 @@ import UIKit
 
 class Rays {
     var rayName: String?
-    var slices: [Slices] = []
-    let amount:[Ray]
+    var ray: [Slices] = []
+//    let amount:[Ray]
     
     
     init (rayName: String) {
@@ -40,9 +40,9 @@ class Rays {
                  
                  let ray = Ray(slices: [fourth, third, second, first ])
         
-        self.slices = ray.slices
-        print(ray.slices.self)
-        self.amount.insert([fourth, third, second, first ], at: 0)
+        self.ray = ray.slices
+        //print(ray.slices.self)
+       // self.amount.insert([fourth, third, second, first ], at: 0)
     }
    
 }
