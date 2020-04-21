@@ -9,61 +9,11 @@
 import UIKit
 
 class RayOfExitController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-
-    var slices: [RayOfRays] = {
-
-        
-        var ninthSlice = RayOfRays()
-        ninthSlice.productsName = "Семена"
-        ninthSlice.platName = "Плат Эффект"
-        ninthSlice.directionOfObservation = "ЫЙИ-нить"
-        
-        var eighthSlice = RayOfRays()
-        eighthSlice.productsName = "Семена"
-        eighthSlice.platName = "Плат Эффект"
-        eighthSlice.directionOfObservation = "ЫЙИ-нить"
-        
-        var seventhSlice = RayOfRays()
-        seventhSlice.productsName = "Семена"
-        seventhSlice.platName = "Плат Эффект"
-        seventhSlice.directionOfObservation = "ЫЙИ-нить"
-        //seventhSlice.numberOfViews = 57989654934
-        
-        var sixthSlice = RayOfRays()
-        sixthSlice.productsName = "Зерна"
-        sixthSlice.platName = "Плат Вселенский"
-        sixthSlice.directionOfObservation = "Ритмологический рисунок из ЫЙИ"
-        
-        var fiveSlice = RayOfRays()
-        fiveSlice.productsName = "Плоды"
-        fiveSlice.platName = "Плат Знаний"
-        fiveSlice.directionOfObservation = "Книга Озаригн"
-        
-        var fourthSlice = RayOfRays()
-        fourthSlice.productsName = "Цветы, мед"
-        fourthSlice.platName = "Плат Любви"
-        fourthSlice.directionOfObservation = "Книга Радастея"
-        
-        var thirdSlice = RayOfRays()
-        thirdSlice.productsName = "Листья"
-        thirdSlice.platName = "Плат Славы"
-        thirdSlice.directionOfObservation = "Книга Ирлем"
-        
-        var secondSlice = RayOfRays()
-        secondSlice.productsName = "Стебель"
-        secondSlice.platName = "Плат Денег"
-        secondSlice.directionOfObservation = "Ритмический рисунок из ЫЙИ"
-        
-        var firstSlice = RayOfRays()
-        firstSlice.productsName = "Корень"
-        firstSlice.platName = "Плат Стыда"
-        firstSlice.directionOfObservation = "ЫЙИ"
-        
-        //sixthSlice.numberOfViews = 57989654934
-        
-        return [ninthSlice, eighthSlice, seventhSlice, sixthSlice, fiveSlice, fourthSlice, thirdSlice, secondSlice, firstSlice ]
-    }()
     
+    private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    let rayName = "Луч Выхода"
+    let rayOfExit = Rays(rayName: "Луч Выхода")
+
     lazy var collectionView: UICollectionView = {
               let layout = UICollectionViewFlowLayout()
               layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
@@ -74,7 +24,7 @@ class RayOfExitController:BaseCell, UICollectionViewDataSource, UICollectionView
               return cv
           }()
           
-          let cellId = "cellId"
+          
           
           override func setupViews() {
               super.setupViews()
@@ -82,26 +32,37 @@ class RayOfExitController:BaseCell, UICollectionViewDataSource, UICollectionView
               addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
               addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
               
-              collectionView.register(RayCell.self, forCellWithReuseIdentifier: cellId)
+              collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
               collectionView.register(ExitHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
             
-               collectionView.register(TimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+               collectionView.register(ExTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
               
               collectionView.backgroundColor = UIColor.green
-          }
-
+                NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: rayName), object: nil)
+                
+                }
+                
+                @objc func loadList(notification: NSNotification) {
+                     rayOfExit.oneMore(nameOfRays: rayName)
+                  self.collectionView.reloadData()
+                 
+                }
 
 }
 
 extension RayOfExitController {
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+     return rayOfExit.amount(nameOfRays: rayName)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-            return slices.count
+        return rayOfExit.slices.count
         }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! RayCell
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
                    cell.backgroundColor = UIColor.yellow
-                   cell.rayOfReturn = slices[indexPath.item]
+            cell.rayOfReturn = rayOfExit.slices[indexPath.item]
             
             cell.contentView.layer.cornerRadius = 2.0
                cell.contentView.layer.borderWidth = 1.0
@@ -139,3 +100,4 @@ extension RayOfExitController {
            return CGSize(width: self.frame.width, height: 100)
        }
 }
+

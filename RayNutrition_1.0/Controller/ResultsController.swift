@@ -10,59 +10,60 @@ import UIKit
 
 class ResultsController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
     let imageNames = ["home", "trending", "subscriptions", "account", "results"]
-    var slices: [RayOfRays] = {
-
-        
-        var ninthSlice = RayOfRays()
-//        ninthSlice.productsName = "Луч"
-//        ninthSlice.platName = "земли"
-        ninthSlice.directionOfObservation = "0"
-        
-        var eighthSlice = RayOfRays()
-//        eighthSlice.productsName = "Луч"
-//        eighthSlice.platName = "человека"
-        eighthSlice.directionOfObservation = "0"
-        
-        var seventhSlice = RayOfRays()
-//        seventhSlice.productsName = "Луч"
-//        seventhSlice.platName = "возврата"
-        seventhSlice.directionOfObservation = "0"
-        //seventhSlice.numberOfViews = 57989654934
-        
-        var sixthSlice = RayOfRays()
-//        sixthSlice.productsName = "Луч"
-//        sixthSlice.platName = "выхода"
-        sixthSlice.directionOfObservation = "0"
-        
-        var fiveSlice = RayOfRays()
-        fiveSlice.productsName = "Плоды"
-        fiveSlice.platName = "Плат Знаний"
-        fiveSlice.directionOfObservation = "Книга Озаригн"
-        
-        var fourthSlice = RayOfRays()
-        fourthSlice.productsName = "Цветы, мед"
-        fourthSlice.platName = "Плат Любви"
-        fourthSlice.directionOfObservation = "Книга Радастея"
-        
-        var thirdSlice = RayOfRays()
-        thirdSlice.productsName = "Листья"
-        thirdSlice.platName = "Плат Славы"
-        thirdSlice.directionOfObservation = "Книга Ирлем"
-        
-        var secondSlice = RayOfRays()
-        secondSlice.productsName = "Стебель"
-        secondSlice.platName = "Плат Денег"
-        secondSlice.directionOfObservation = "Ритмический рисунок из ЫЙИ"
-        
-        var firstSlice = RayOfRays()
-        firstSlice.productsName = "Корень"
-        firstSlice.platName = "Плат Стыда"
-        firstSlice.directionOfObservation = "ЫЙИ"
-        
-        //sixthSlice.numberOfViews = 57989654934
-        
-        return [ninthSlice, eighthSlice, seventhSlice, sixthSlice, fiveSlice, fourthSlice, thirdSlice, secondSlice, firstSlice ]
-    }()
+    
+//    var slices: [Slices] = {
+//
+//        
+//        var ninthSlice = Slices()
+////        ninthSlice.productsName = "Луч"
+////        ninthSlice.platName = "земли"
+//        ninthSlice.directionOfObservation = "0"
+//        
+//        var eighthSlice = Slices()
+////        eighthSlice.productsName = "Луч"
+////        eighthSlice.platName = "человека"
+//        eighthSlice.directionOfObservation = "0"
+//        
+//        var seventhSlice = Slices()
+////        seventhSlice.productsName = "Луч"
+////        seventhSlice.platName = "возврата"
+//        seventhSlice.directionOfObservation = "0"
+//        //seventhSlice.numberOfViews = 57989654934
+//        
+//        var sixthSlice = Slices()
+////        sixthSlice.productsName = "Луч"
+////        sixthSlice.platName = "выхода"
+//        sixthSlice.directionOfObservation = "0"
+//        
+//        var fiveSlice = Slices()
+//        fiveSlice.productsName = "Плоды"
+//        fiveSlice.platName = "Плат Знаний"
+//        fiveSlice.directionOfObservation = "Книга Озаригн"
+//        
+//        var fourthSlice = Slices()
+//        fourthSlice.productsName = "Цветы, мед"
+//        fourthSlice.platName = "Плат Любви"
+//        fourthSlice.directionOfObservation = "Книга Радастея"
+//        
+//        var thirdSlice = Slices()
+//        thirdSlice.productsName = "Листья"
+//        thirdSlice.platName = "Плат Славы"
+//        thirdSlice.directionOfObservation = "Книга Ирлем"
+//        
+//        var secondSlice = Slices()
+//        secondSlice.productsName = "Стебель"
+//        secondSlice.platName = "Плат Денег"
+//        secondSlice.directionOfObservation = "Ритмический рисунок из ЫЙИ"
+//        
+//        var firstSlice = Slices()
+//        firstSlice.productsName = "Корень"
+//        firstSlice.platName = "Плат Стыда"
+//        firstSlice.directionOfObservation = "ЫЙИ"
+//        
+//        //sixthSlice.numberOfViews = 57989654934
+//        
+//        return [ninthSlice, eighthSlice, seventhSlice, sixthSlice, fiveSlice, fourthSlice, thirdSlice, secondSlice, firstSlice ]
+//    }()
     
     lazy var collectionView: UICollectionView = {
               let layout = UICollectionViewFlowLayout()
@@ -132,7 +133,7 @@ extension ResultsController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "cellId", for: indexPath) as! ResultsCell
                    cell.backgroundColor = UIColor.yellow
-                   cell.rayOfReturn = slices[indexPath.item]
+                   //cell.rayOfReturn = slices[indexPath.item]
                    cell.imageView.image = UIImage(named: imageNames[indexPath.item])?.withRenderingMode(.alwaysTemplate)
             
             cell.contentView.layer.cornerRadius = 2.0

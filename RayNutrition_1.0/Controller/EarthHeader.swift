@@ -20,13 +20,19 @@ class EarthHeader: BaseCell {
         return label
     }()
     
+   
+       
     var titleLabelHeightConstraint: NSLayoutConstraint?
+    
+   
     
     override func setupViews() {
         addSubview(titleLabel)
+        
         addConstraintsWithFormat("H:|-25-[v0]|", views: titleLabel)
         addConstraintsWithFormat("V:|-5-[v0]|", views: titleLabel)
         
     }
+    
    
 }
