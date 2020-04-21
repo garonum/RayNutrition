@@ -11,7 +11,7 @@ import UIKit
 class Rays {
     var rayName: String?
     var slices: [Slices] = []
-    
+
     var earthAmount: [Ray] = []
     var humanAmount: [Ray] = []
     var returnAmount: [Ray] = []

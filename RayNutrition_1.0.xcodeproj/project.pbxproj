@@ -15,6 +15,7 @@
 		FA2091B423FD56CC00D49904 /* RayOfEarthController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */; };
 		FA2091B823FD584200D49904 /* RayOfExitController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091B723FD584200D49904 /* RayOfExitController.swift */; };
 		FA54075024237FB00021FAD7 /* RaysData.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA54074F24237FB00021FAD7 /* RaysData.swift */; };
+		FA6F9255244DAD67004F1F4C /* DPCounter.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA6F9254244DAD67004F1F4C /* DPCounter.swift */; };
 		FA76A565243FAECE00EA8F2A /* Ray.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A564243FAECE00EA8F2A /* Ray.swift */; };
 		FA76A567243FAF6700EA8F2A /* RayElements.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A566243FAF6700EA8F2A /* RayElements.swift */; };
 		FA76A569244225FA00EA8F2A /* Rays.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA76A568244225FA00EA8F2A /* Rays.swift */; };
@@ -50,6 +51,7 @@
 		FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfEarthController.swift; sourceTree = "<group>"; };
 		FA2091B723FD584200D49904 /* RayOfExitController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfExitController.swift; sourceTree = "<group>"; };
 		FA54074F24237FB00021FAD7 /* RaysData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RaysData.swift; sourceTree = "<group>"; };
+		FA6F9254244DAD67004F1F4C /* DPCounter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DPCounter.swift; sourceTree = "<group>"; };
 		FA76A564243FAECE00EA8F2A /* Ray.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ray.swift; sourceTree = "<group>"; };
 		FA76A566243FAF6700EA8F2A /* RayElements.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayElements.swift; sourceTree = "<group>"; };
 		FA76A568244225FA00EA8F2A /* Rays.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Rays.swift; sourceTree = "<group>"; };
@@ -156,6 +158,7 @@
 				FAB8C1892444CF3E002CB358 /* HTimeFactor.swift */,
 				FAB8C18B2444CF6A002CB358 /* RTimeFactor.swift */,
 				FAB8C18D2444CFB7002CB358 /* ExTimeFactor.swift */,
+				FA6F9254244DAD67004F1F4C /* DPCounter.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -262,6 +265,7 @@
 				FA956E7C24095736002A76C7 /* ResultsCell.swift in Sources */,
 				FACEE30A23FC6F0500DD8C23 /* SceneDelegate.swift in Sources */,
 				FA956E7823FF433E002A76C7 /* ExitHeader.swift in Sources */,
+				FA6F9255244DAD67004F1F4C /* DPCounter.swift in Sources */,
 				FA956E7423FF4116002A76C7 /* HumanHeader.swift in Sources */,
 				FA956E7623FF4131002A76C7 /* ReturnHeader.swift in Sources */,
 				FA76A569244225FA00EA8F2A /* Rays.swift in Sources */,

@@ -9,8 +9,11 @@
 import UIKit
 
 class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
-  
+    
     let o = RayOfEarthController()
+        
+   
+
     
     let dataArray = ["От 1 с - до 5 мин", "От 5 мин - до 20 мин", "От 20 мин - до 1 ч", "От 1 ч - до 2 ч", "От 2 ч - до 6 ч", "От 6 ч - до 24 ч", "От 1 дня - до 2 дней", "От 2 дней - до 5 дней", "От 5 дней - до 7 дней", "От 1 недели - до 1 месяца", "От 1 месяца - до 6 мес.", "От 6 мес - до 12 мес", "более года"]
     
@@ -94,6 +97,7 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
         
         UIPicker.delegate = self as UIPickerViewDelegate
         UIPicker.dataSource = self as UIPickerViewDataSource
+        nextDPId()
         addSubview(gradeTextField)
         
         gradeTextField.inputView = UIPicker

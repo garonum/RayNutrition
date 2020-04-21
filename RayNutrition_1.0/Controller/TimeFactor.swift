@@ -85,7 +85,7 @@ class TimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
             addSubview(button)
        }
        @objc func buttonClicked() {
-      
+        
         NotificationCenter.default.post(name: NSNotification.Name("load"), object: nil)
         
        }

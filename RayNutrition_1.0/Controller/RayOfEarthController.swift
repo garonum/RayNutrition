@@ -9,7 +9,7 @@
 import UIKit
 
 class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-    
+    var sel : [IndexPath?] = []
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     let rayName = "Луч Земли"
     let rayOfEarth = Rays(rayName: "Луч Земли")
@@ -28,6 +28,7 @@ class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionVie
      override func setupViews() {
          super.setupViews()
          addSubview(collectionView)
+    
         
         addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
@@ -39,14 +40,42 @@ class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionVie
           collectionView.register(EaTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
          
          collectionView.backgroundColor = UIColor.green
+        collectionView.allowsMultipleSelection = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: rayName), object: nil)
      }
    @objc func loadList(notification: NSNotification) {
-    print(notification.name.rawValue)
-        rayOfEarth.oneMore(nameOfRays: rayName)
-     self.collectionView.reloadData()
+        
+    rayOfEarth.oneMore(nameOfRays: rayName)
+       self.collectionView.reloadData()
+        if sel.count > 0 {
+            for i in 0...rayOfEarth.amount(nameOfRays: rayName){
+                for y in 0...rayOfEarth.slices.count{
+                    self.collectionView.deselectItem(at: [i,y], animated: false)
+                    
+                }
+                                  
+                              }
+            for i in sel{
+                self.collectionView.selectItem(at: i, animated: false, scrollPosition: .centeredHorizontally)
+                
+            }
+           
+        }
+    self.collectionView.scrollToItem(at: [rayOfEarth.amount(nameOfRays: rayName)-1,0], at: .top, animated: .init(booleanLiteral: true))
     
+    
+    
+//               if indexPath.section == i?.section ?? 112{
+//
+//                   self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+//
+//               }
+              
+          
+    
+      
+
    }
 
 }
@@ -131,6 +160,74 @@ extension RayOfEarthController {
      
      
 }
+
+extension RayOfEarthController {
+    func allreadyClicked(cur:Int)->Bool{
+        var check = 0
+        for item in 0...sel.count-1{
+            if cur == sel[item]?.section ?? 112{
+                check=1
+            }
+        }
+        if check > 0{
+            return true
+        }else{
+            return false
+        }
+    }
+     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        //sel.append([0,3])
+        mainInstance.name += "122"
+        print(mainInstance.name ?? "42")
+        
+        if sel.count > 0 {//print("1")
+            for item in 0...sel.count-1{//print("2")
+                if indexPath.section == sel[item]?.section ?? 112{//print("3")
+                    
+                   
+                    for i in 0...rayOfEarth.slices.count{//print("4")
+                        self.collectionView.deselectItem(at: [indexPath.section,i], animated: false)
+                        
+                         
+                    }
+                    sel.remove(at: item)
+                    sel.append(indexPath)
+                    
+                    self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+                    
+                }else{//print("5")
+                    if allreadyClicked(cur: indexPath.section) == false{
+                        for i in 0...rayOfEarth.slices.count{//print("6")
+                            self.collectionView.deselectItem(at: [indexPath.section,i], animated: false)
+
+                        }
+                        sel.append(indexPath)
+                        self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
+                    }
+
+                }
+               
+            }
+        }else{//print("7")
+            sel.append(indexPath)
+        }
+        print(sel)
+        
+        
+        //sel.append(indexPath)
+        //print(sel)
+        
+        //
+//        self.collectionView.selectItem(at: sel[0], animated: false, scrollPosition: .top)
+//        self.collectionView.deselectItem(at: [0,0], animated: false)
+//        self.collectionView.deselectItem(at: [0,2], animated: false)
+//        self.collectionView.deselectItem(at: [0,3], animated: false)
+        //self.collectionView.reloadData()
+        
+    }
+   
+}
+
 //class SupView: UICollectionReusableView {
 //
 //    override init(frame: CGRect) {

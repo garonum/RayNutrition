@@ -9,6 +9,7 @@
 import UIKit
 
 class BaseCell: UICollectionViewCell {
+    var dPId = 0
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -20,6 +21,9 @@ class BaseCell: UICollectionViewCell {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    func nextDPId(){
+        dPId += 1
     }
 }
 
@@ -93,25 +97,31 @@ class RayCell: BaseCell {
         
     }
     override var isSelected: Bool {
-       didSet {
-         //directionOfObservation.layer.borderWidth = isSelected ? 10 : 0
+      didSet {
         self.backgroundColor = isSelected ? UIColor.white : UIColor.yellow
-        
-        if isSelected {
-    
-           result.saveRayCoefficient(rayName: rayName, rowNumber: row, sectionNumber: section)
-         
-        }else{
-         //   print("I print")
-        }
-        
-       }
-     }
-   func getIndexPathFor(view: UIView, collectionView: UICollectionView) -> NSIndexPath? {
 
-        let point = collectionView.convert(view.bounds.origin, from: view)
-        let indexPath = collectionView.indexPathForItem(at: point)
-        return indexPath as NSIndexPath?
+      }
     }
+//    override var isSelected: Bool {
+//       didSet {
+//         //directionOfObservation.layer.borderWidth = isSelected ? 10 : 0
+//        self.backgroundColor = isSelected ? UIColor.white : UIColor.yellow
+//        
+//        if isSelected {
+//    
+//           result.saveRayCoefficient(rayName: rayName, rowNumber: row, sectionNumber: section)
+//         
+//        }else{
+//         //   print("I print")
+//        }
+//        
+//       }
+//     }
+//   func getIndexPathFor(view: UIView, collectionView: UICollectionView) -> NSIndexPath? {
+//
+//        let point = collectionView.convert(view.bounds.origin, from: view)
+//        let indexPath = collectionView.indexPathForItem(at: point)
+//        return indexPath as NSIndexPath?
+//    }
    
 }
