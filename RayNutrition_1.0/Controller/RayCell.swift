@@ -10,6 +10,7 @@ import UIKit
 
 class BaseCell: UICollectionViewCell {
     var dPId = 0
+    var pickers: [IndexPath] = []
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
@@ -22,8 +23,11 @@ class BaseCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func nextDPId(){
+    func oneMorePicker() -> Int{
         dPId += 1
+        print(dPId)
+        pickers.append([dPId,0])
+        return dPId
     }
 }
 

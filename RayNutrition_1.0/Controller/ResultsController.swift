@@ -86,7 +86,7 @@ class ResultsController:BaseCell, UICollectionViewDataSource, UICollectionViewDe
               collectionView.register(ResultsCell.self, forCellWithReuseIdentifier: cellId)
               collectionView.register(ResultsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
             
-               collectionView.register(TimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+               //collectionView.register(TimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
               
               collectionView.backgroundColor = UIColor.green
           }
@@ -159,18 +159,19 @@ extension ResultsController {
               let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
               header.backgroundColor = .blue
               return header
-          } else {
-              let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
-              footer.backgroundColor = .green
-              return footer
-          }
+          }else{
+            let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+            header.backgroundColor = .blue
+            return header
+        }
+        
       }
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
            return CGSize(width: self.frame.width, height: 50)
        }
-       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-           return CGSize(width: self.frame.width, height: 100)
-       }
+//       func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+//           return CGSize(width: self.frame.width, height: 100)
+//       }
 }
 
 

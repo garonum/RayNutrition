@@ -11,7 +11,7 @@ import UIKit
 class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     let o = RayOfEarthController()
-        
+    var x: Int?
    
 
     
@@ -33,6 +33,8 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
          gradeTextField.text = dataArray[row]
+        //print("2")
+        //print(x ?? 12)
          self.endEditing(true)
      }
     
@@ -88,8 +90,9 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
             addSubview(button)
        }
        @objc func buttonClicked() {
-      
-        NotificationCenter.default.post(name: NSNotification.Name("Луч Земли"), object: nil)
+     let t = RayOfEarthController()
+        t.test()
+        //NotificationCenter.default.post(name: NSNotification.Name("Луч Земли"), object: nil)
         
        }
     
@@ -97,13 +100,14 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
         
         UIPicker.delegate = self as UIPickerViewDelegate
         UIPicker.dataSource = self as UIPickerViewDataSource
-        nextDPId()
+        
         addSubview(gradeTextField)
         
         gradeTextField.inputView = UIPicker
         gradeTextField.text = dataArray[0]
         setupButton()
-        
+        //print("1")
+        //x = oneMorePicker()
     }
    
    

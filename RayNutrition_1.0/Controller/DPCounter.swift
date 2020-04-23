@@ -26,4 +26,4 @@ class Main {
     self.name = name
   }
 }
-var mainInstance = Main(name:"My Global Class")
+//var mainInstance = Main(name:"My Global Class")
