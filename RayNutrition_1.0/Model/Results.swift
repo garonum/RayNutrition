@@ -46,16 +46,10 @@ class Result: Results{
             guard dataForResultEa.count > 0 else {
                 return
             }
-            //print(dataForResultEa[0].sectionNumber)
+            
             
             for item in 0...super.dataForResultEa.count-1{
-                print("-")
-                //print(item)
-               // print(dataForResultEa[item].sectionNumber)
-                print(super.dataForResultEa.count)
-                print("-_")
-    //            print(dataForResultEa[0][0].rowNumber)
-    //            print("__")
+            
             }
         }
     

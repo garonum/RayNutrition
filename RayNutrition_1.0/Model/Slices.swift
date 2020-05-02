@@ -19,8 +19,12 @@ class Slices: NSObject {
     //var channel: Channel?
     
 }
+class IP: NSObject {
+    
+    var iP: IndexPath?
+   
+   
+    
+}
 
-//class Channel: NSObject {
-//    var name: String?
-//    var profileImageName: String?
-//}
+

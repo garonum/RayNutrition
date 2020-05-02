@@ -225,7 +225,7 @@ class Rays {
     func oneMore(nameOfRays:String) {
         switch rayName {
               case "Луч Земли":
-                earthAmount.insert(self.earthRay, at: 0)
+                earthAmount.append(self.earthRay)
                case "Луч Человека":
                 humanAmount.insert(self.humanRay, at: 0)
                case "Луч Возврата":
@@ -239,6 +239,7 @@ class Rays {
                 var x = 0
                     x += 0
          }
+        
     }
     func amount(nameOfRays:String)->Int{
         switch rayName {

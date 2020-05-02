@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		FA0AF7C7245CC0C90025E1E6 /* GlobalResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AF7C6245CC0C90025E1E6 /* GlobalResults.swift */; };
 		FA2091A923FC8DAC00D49904 /* RayOfReturnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */; };
 		FA2091AC23FC8E6C00D49904 /* Slices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091AB23FC8E6C00D49904 /* Slices.swift */; };
 		FA2091AE23FC8EEE00D49904 /* RayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091AD23FC8EEE00D49904 /* RayCell.swift */; };
@@ -43,6 +44,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		FA0AF7C6245CC0C90025E1E6 /* GlobalResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalResults.swift; sourceTree = "<group>"; };
 		FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfReturnController.swift; sourceTree = "<group>"; };
 		FA2091AB23FC8E6C00D49904 /* Slices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slices.swift; sourceTree = "<group>"; };
 		FA2091AD23FC8EEE00D49904 /* RayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RayCell.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 			children = (
 				FACEE32123FC75B700DD8C23 /* Extensions.swift */,
 				FACEE32223FC75B700DD8C23 /* Utilities.swift */,
+				FA0AF7C6245CC0C90025E1E6 /* GlobalResults.swift */,
 			);
 			path = Helpers;
 			sourceTree = "<group>";
@@ -266,6 +269,7 @@
 				FACEE30A23FC6F0500DD8C23 /* SceneDelegate.swift in Sources */,
 				FA956E7823FF433E002A76C7 /* ExitHeader.swift in Sources */,
 				FA6F9255244DAD67004F1F4C /* DPCounter.swift in Sources */,
+				FA0AF7C7245CC0C90025E1E6 /* GlobalResults.swift in Sources */,
 				FA956E7423FF4116002A76C7 /* HumanHeader.swift in Sources */,
 				FA956E7623FF4131002A76C7 /* ReturnHeader.swift in Sources */,
 				FA76A569244225FA00EA8F2A /* Rays.swift in Sources */,

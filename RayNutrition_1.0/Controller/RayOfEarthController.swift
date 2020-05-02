@@ -8,34 +8,13 @@
 
 import UIKit
 
-class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
-    var sel : [IndexPath?] = []
+
+class RayOfEarthController:BaseCell, 
+UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
+
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
 
     let rayName = "Луч Земли"
-    let rayOfEarth = Rays(rayName: "Луч Земли")
-    
-    func test(){
-        
-        rayOfEarth.oneMore(nameOfRays: rayName)
-           self.collectionView.reloadData()
-            // восстановление выбранных ранее элементов (после перезагрузки все выбранное слетает)
-            if sel.count > 0 { // смотрим выбирал ли юзер срез ранее
-                for i in 0...rayOfEarth.amount(nameOfRays: rayName){// проверяются все лучи одного вида(например луч земли)
-                    for y in 0...rayOfEarth.slices.count{ // все срезы устанавливаются в положение deselected
-                        self.collectionView.deselectItem(at: [i,y], animated: false)
-                        
-                    }
-                                      
-                                  }
-                for i in sel{ // все выбранное ранее
-                    self.collectionView.selectItem(at: i, animated: false, scrollPosition: .centeredHorizontally)
-                    
-                }
-               
-            }
-        self.collectionView.scrollToItem(at: [rayOfEarth.amount(nameOfRays: rayName)-1,0], at: .top, animated: .init(booleanLiteral: true))
-    }
     
    lazy var collectionView: UICollectionView = {
          let layout = UICollectionViewFlowLayout()
@@ -46,51 +25,51 @@ class RayOfEarthController:BaseCell, UICollectionViewDataSource, UICollectionVie
          cv.delegate = self
          return cv
      }()
-     
-     override func setupViews() {
-         super.setupViews()
-         addSubview(collectionView)
     
+     override func setupViews() {
+        
+         super.setupViews()
+
+         addSubview(collectionView)
         
         addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
 
-//        collectionView.register(SupView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: "someRandonIdentifierString")
-//        collectionView.register(SupView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader , withReuseIdentifier: "someRandonIdentifierString")
-         collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
-         collectionView.register(EarthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
-         collectionView.register(EaTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
+
+        collectionView.register(EarthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
+        collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
+        
+        collectionView.register(EaTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter , withReuseIdentifier: "Footer")
+       
          collectionView.backgroundColor = UIColor.green
          collectionView.allowsMultipleSelection = true
-        print(0)
+      
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: rayName), object: nil)
         
-     }
-   @objc func loadList(notification: NSNotification) {
         
-      
+        
+     }
 
-   }
 
 }
 
 extension RayOfEarthController {
     
      func numberOfSections(in collectionView: UICollectionView) -> Int {
-
-        return rayOfEarth.amount(nameOfRays: rayName)
+       
+        return super.rayOfEarth.amount(nameOfRays: rayName)
         
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return rayOfEarth.slices.count
+        return super.rayOfEarth.slices.count
         }
         
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
         
                     cell.backgroundColor = UIColor.yellow
-                    cell.rayOfReturn = rayOfEarth.slices[indexPath.row]
+                    cell.rayOfReturn = super.rayOfEarth.slices[indexPath.row]
                     cell.row = indexPath.row
                     cell.section = indexPath.section
                     cell.rayName = rayName
@@ -110,6 +89,7 @@ extension RayOfEarthController {
             return cell
     }
     
+  
     func collectionView(_ collectionView: UICollectionView,
                         layout collectionViewLayout: UICollectionViewLayout,
                         insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -128,17 +108,33 @@ extension RayOfEarthController {
      }
     
      func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
-
-         
+ 
           if kind == UICollectionView.elementKindSectionHeader {
 //            let someView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "someRandonIdentifierString", for: indexPath) as! SupView
 //            return someView
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+              guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as? EarthHeader
+            else {
+                     fatalError("Invalid view type")
+                 }
               header.backgroundColor = .blue
-
+            //header.titleLabel.text = "  Earth"
               return header
           } else {
-              let footer = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Footer", for: indexPath)
+            
+              guard let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "Footer",
+                for: indexPath) as? EaTimeFactor
+                else{
+                    fatalError("Invalid view type")
+            }
+          
+            footer.gradeTextField.tag = indexPath.section
+            G_Res.oneMoreSI(indexPath: indexPath)
+            
+            
+            
+            
               footer.backgroundColor = .green
               return footer
           }
@@ -158,10 +154,37 @@ extension RayOfEarthController {
 }
 
 extension RayOfEarthController {
+   
+    @objc func loadList(notification: NSNotification) {
+        
+        super.rayOfEarth.oneMore(nameOfRays: rayName)
+     
+        self.collectionView.reloadData()
+     
+           //print(super.rayOfEarth.amount(nameOfRays: rayName))
+                  // восстановление выбранных ранее элементов (после перезагрузки все выбранное слетает)
+          if G_Res.selectedSlices.count > 0 { // смотрим выбирал ли юзер срез ранее
+              for i in 0...rayOfEarth.amount(nameOfRays: rayName){// проверяются все лучи одного вида(например луч земли)
+                  for y in 0...rayOfEarth.slices.count{ // все срезы устанавливаются в положение deselected
+                      self.collectionView.deselectItem(at: [i,y], animated: false)
+  
+                  }
+  
+                                }
+              for i in G_Res.selectedSlices { // все выбранное ранее
+                  self.collectionView.selectItem(at: i, animated: false, scrollPosition: .centeredHorizontally)
+  
+              }
+  
+          }
+        
+        self.collectionView.scrollToItem(at: [rayOfEarth.amount(nameOfRays: rayName)-1,0], at: .top, animated: .init(booleanLiteral: true))
+    }
+    
     func allreadyClicked(cur:Int)->Bool{
         var check = 0
-        for item in 0...sel.count-1{
-            if cur == sel[item]?.section ?? 112{
+        for item in 0...G_Res.selectedSlices.count-1{
+            if cur == G_Res.selectedSlices[item]?.section{
                 check=1
             }
         }
@@ -171,73 +194,61 @@ extension RayOfEarthController {
             return false
         }
     }
+    
+//    func allreadyExist(cur:Int)->Bool{
+//            var check = 0
+//        for item in 0...G_Res.selectedSlices.count-1{
+//            if cur == G_Res.selectedSlices[item]?.section{
+//                    check=1
+//                }
+//            }
+//            if check > 0{
+//                return true
+//            }else{
+//                return false
+//            }
+//        }
+    
+    
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-        //sel.append([0,3])
-        //mainInstance.name += "122"
-        //print(mainInstance.name ?? "42")
-        
-        if sel.count > 0 {//print("1")
-            for item in 0...sel.count-1{//print("2")
-                if indexPath.section == sel[item]?.section ?? 112{//print("3")
-                    
+
+        if G_Res.selectedSlices.count > 0 {
+            for item in 0...G_Res.selectedSlices.count-1{
+                if indexPath.section == G_Res.selectedSlices[item]?.section{
                    
-                    for i in 0...rayOfEarth.slices.count{//print("4")
+                    for i in 0...super.rayOfEarth.slices.count{
                         self.collectionView.deselectItem(at: [indexPath.section,i], animated: false)
                         
                          
                     }
-                    sel.remove(at: item)
-                    sel.append(indexPath)
+                    G_Res.selectedSlices.remove(at: item)
+                    G_Res.selectedSlices.append(indexPath)
                     
                     self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
                     
-                }else{//print("5")
+                }else{
                     if allreadyClicked(cur: indexPath.section) == false{
-                        for i in 0...rayOfEarth.slices.count{//print("6")
+                        for i in 0...rayOfEarth.slices.count{
                             self.collectionView.deselectItem(at: [indexPath.section,i], animated: false)
 
                         }
-                        sel.append(indexPath)
+                        G_Res.selectedSlices.append(indexPath)
                         self.collectionView.selectItem(at: indexPath, animated: false, scrollPosition: .centeredHorizontally)
                     }
 
                 }
                
             }
-        }else{//print("7")
-            sel.append(indexPath)
+        }else{
+            G_Res.selectedSlices.append(indexPath)
         }
-        print(sel)
+        print(G_Res.selectedSlices)
         
 
         
     }
    
+  
+   
 }
 
-//class SupView: UICollectionReusableView {
-//
-//    override init(frame: CGRect) {
-//        super.init(frame: frame)
-//        self.myCustomInit()
-//    }
-//
-//    required init(coder aDecoder: NSCoder) {
-//        super.init(coder: aDecoder)!
-//        self.myCustomInit()
-//    }
-//
-//    func myCustomInit() {
-//        
-//         let button = UIButton(frame: CGRect(x: 0, y: 0, width: 100, height: 50))
-//            button.backgroundColor = .green
-//            button.setTitle("Test Button", for: .normal)
-//            button.addTarget(self, action: #selector(buttonAction), for: .touchUpInside)
-//
-//            addSubview(button)
-//    }
-//    @objc func buttonAction(sender: UIButton!) {
-//      print("Button tapped")
-//    }
-//
-//}

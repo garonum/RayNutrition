@@ -9,11 +9,13 @@
 import UIKit
 
 class BaseCell: UICollectionViewCell {
-    var dPId = 0
-    var pickers: [IndexPath] = []
+    
+    let rayOfEarth = Rays(rayName: "Луч Земли")
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupViews()
+        
     }
     
     func setupViews() {
@@ -23,12 +25,8 @@ class BaseCell: UICollectionViewCell {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    func oneMorePicker() -> Int{
-        dPId += 1
-        print(dPId)
-        pickers.append([dPId,0])
-        return dPId
-    }
+   
+  
 }
 
 class RayCell: BaseCell {

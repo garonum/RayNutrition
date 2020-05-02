@@ -8,12 +8,32 @@
 
 import UIKit
 
-class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
+class EaTimeFactor: BaseCell,
+UIPickerViewDelegate, UIPickerViewDataSource {
     
-    let o = RayOfEarthController()
-    var x: Int?
+  
+    var indexPath: IP? {
+          didSet {
+              
+            ip = indexPath?.iP
+              
+          }
+      }
+    
+    var ip : IndexPath!
+    
+    override func setupViews() {
    
-
+          UIPicker.delegate = self as UIPickerViewDelegate
+          UIPicker.dataSource = self as UIPickerViewDataSource
+         
+          addSubview(gradeTextField)
+          
+          gradeTextField.inputView = UIPicker
+          gradeTextField.text = dataArray[0]
+          setupButton()
+          
+      }
     
     let dataArray = ["От 1 с - до 5 мин", "От 5 мин - до 20 мин", "От 20 мин - до 1 ч", "От 1 ч - до 2 ч", "От 2 ч - до 6 ч", "От 6 ч - до 24 ч", "От 1 дня - до 2 дней", "От 2 дней - до 5 дней", "От 5 дней - до 7 дней", "От 1 недели - до 1 месяца", "От 1 месяца - до 6 мес.", "От 6 мес - до 12 мес", "более года"]
     
@@ -22,6 +42,7 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
       }
     
       func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+    
          return dataArray.count
       }
     
@@ -33,8 +54,9 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
          gradeTextField.text = dataArray[row]
-        //print("2")
-        //print(x ?? 12)
+        
+        G_Res.oneMoreSI(indexPath: [gradeTextField.tag,row])
+        
          self.endEditing(true)
      }
     
@@ -50,7 +72,7 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
     
    let gradeTextField: UITextField = {
         let UIPicker = UITextField(frame: CGRect(x: 20, y: 15, width: 300, height: 40))
-        
+    UIPicker.tag = 0
         //UIPicker.placeholder = "Enter text here"
         UIPicker.font = UIFont.systemFont(ofSize: 15)
         UIPicker.borderStyle = UITextField.BorderStyle.roundedRect
@@ -77,6 +99,7 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
     var titleLabelHeightConstraint: NSLayoutConstraint?
     
     func setupButton(){
+        
            let button = UIButton.init(type: .system)
               button.frame = CGRect(x: 50.0, y: 75.0, width: 200.0, height: 52.0)
               button.layer.borderWidth = 5.0
@@ -89,26 +112,16 @@ class EaTimeFactor: BaseCell, UIPickerViewDelegate, UIPickerViewDataSource {
                button.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
             addSubview(button)
        }
+    
        @objc func buttonClicked() {
-     let t = RayOfEarthController()
-        t.test()
-        //NotificationCenter.default.post(name: NSNotification.Name("Луч Земли"), object: nil)
+
+        NotificationCenter.default.post(name: NSNotification.Name("Луч Земли"), object: nil)
+       
         
        }
+   
     
-    override func setupViews() {
-        
-        UIPicker.delegate = self as UIPickerViewDelegate
-        UIPicker.dataSource = self as UIPickerViewDataSource
-        
-        addSubview(gradeTextField)
-        
-        gradeTextField.inputView = UIPicker
-        gradeTextField.text = dataArray[0]
-        setupButton()
-        //print("1")
-        //x = oneMorePicker()
-    }
+  
    
    
 }
