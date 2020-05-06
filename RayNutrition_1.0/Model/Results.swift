@@ -21,6 +21,9 @@ class Result: Results{
     var rowNumber:Int? = nil
     var sectionNumber:Int = 0
     
+    var coefficentRaySlice = [27,20,14,7]
+    var timeFactor = [13,12,11,10,9,8,7,6,5,4,3,2,1]
+    
     func saveRayCoefficient(rayName: String, rowNumber: Int, sectionNumber: Int){
             switch rayName {
                       case "Луч Земли":
@@ -42,15 +45,38 @@ class Result: Results{
                           //return 0
                   }
         }
-        func repeatCheck(rayName: String,sectionNumber: Int){
-            guard dataForResultEa.count > 0 else {
-                return
-            }
-            
-            
-            for item in 0...super.dataForResultEa.count-1{
-            
+    func repeatCheck(rayName: String,sectionNumber: Int){
+        guard dataForResultEa.count > 0 else {
+            return
+        }
+        
+        
+//        for item in 0...super.dataForResultEa.count-1{
+//
+//        }
+    }
+    
+    func finalResult(row:Int) -> Int{
+       
+        var emissivity = 0
+        if row == 0{
+            for secSlice in G_Res.selectedSlices{
+                for secInt in G_Res.selectedIntervals{
+                    if secSlice?.section == secInt.section {
+                        print(G_Res.selectedSlices)
+                        print(G_Res.selectedIntervals)
+                        print(secSlice!.row)
+                        print(secInt.row)
+                        print(coefficentRaySlice[secSlice!.row])
+                        print(timeFactor[secInt.row])
+                        emissivity += coefficentRaySlice[secSlice!.row] * timeFactor[secInt.row]
+                    }
+                }
+                
             }
         }
+        return emissivity
+    
+    }
     
 }

@@ -55,7 +55,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int){
          gradeTextField.text = dataArray[row]
         
-        G_Res.oneMoreSI(indexPath: [gradeTextField.tag,row])
+        G_Res.selectInterval(indexPath: [gradeTextField.tag,row])
         
          self.endEditing(true)
      }
@@ -101,7 +101,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     func setupButton(){
         
            let button = UIButton.init(type: .system)
-              button.frame = CGRect(x: 50.0, y: 75.0, width: 200.0, height: 52.0)
+        button.frame = CGRect(x: 50.0, y: 75.0, width: 200.0, height: 52.0)
               button.layer.borderWidth = 5.0
               button.layer.borderColor = UIColor.white.cgColor
               button.backgroundColor = UIColor.green

@@ -30,9 +30,27 @@ class GlobalResult {
                 selectedIntervals.append(indexPath)
                 
             }
+        print("om")
         print(selectedIntervals)
     }
-    func selectInterval(){
+    
+    
+    func selectInterval(indexPath: IndexPath){
+    // Юзер выбирает интервал он меняет значение в ранее созданном selectedIntervals
+        
+        guard selectedIntervals.count > 0 else {
+            return
+        }
+                      
+        for item in 0...selectedIntervals.count-1{
+            if selectedIntervals[item].section == indexPath.section{
+                selectedIntervals.remove(at: item)
+                selectedIntervals.append(indexPath)
+                
+            }
+        }
+        print("si")
+         print(selectedIntervals)
         
     }
     func allreadyExist(cur:Int)->Bool{
@@ -49,6 +67,7 @@ class GlobalResult {
               }
           }
     
+ 
     
 }
 var G_Res = GlobalResult()

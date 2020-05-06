@@ -10,6 +10,7 @@ import UIKit
 
 class ViewController: UIViewController, UICollectionViewDataSource {
     
+   
     var collectionView: UICollectionView!
     var earthId = "Earth"
     var humanId = "Human"
@@ -44,10 +45,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
        menuBar.collectionView.selectItem(at: indexPath, animated: true, scrollPosition: .centeredHorizontally)
    }
     
+    
     func switchToMenuIndex(menuIndex: Int) {
         let indexPath = IndexPath(item: menuIndex, section: 0)
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
-        
+        if menuIndex == 4{
+         NotificationCenter.default.post(name: NSNotification.Name("results"), object: nil)
+        }
     }
     
     private func setupMenuBar() {
@@ -96,28 +100,38 @@ extension ViewController {
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
            var identifier: String
-           
+        
+//        if indexPath.item == 4 {
+//            identifier = resultsId
+//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ResultsController
+//            cell.delegate = self
+//             return cell
+//        }
+        var cell:UICollectionViewCell!
            switch indexPath.item {
            case 0:
                identifier = earthId
-
+               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
            case 1:
                identifier = humanId
-
+               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
            case 2:
                identifier = returnId
-
+               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
            case 3:
                identifier = exitId
+               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
            case 4:
-           identifier = resultsId
-           
-
+                identifier = resultsId
+                cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+            
            default:
                identifier = humanId
+               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
            }
-               let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-              return cell
+                
+        
+        return cell
        }
 }
 

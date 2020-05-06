@@ -10,9 +10,17 @@ import UIKit
 
 class ResultsCell: BaseCell {
     
+    var row:Int? {
+        didSet {
+            let result = Result()
+            
+            titleLabel.text = "\(result.finalResult(row: row ?? 0))"
+            
+        }
+    }
+    
     var rayOfReturn: Slices? {
         didSet {
-            
             titleLabel.text = rayOfReturn?.productsName
             platName.text = rayOfReturn?.platName
             directionOfObservation.text = rayOfReturn?.directionOfObservation
@@ -36,7 +44,7 @@ class ResultsCell: BaseCell {
     let titleLabel: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "-"
+        label.text = "0"
         label.numberOfLines = 2
         label.textColor = UIColor.black
         return label
@@ -44,7 +52,7 @@ class ResultsCell: BaseCell {
     let platName: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "-"
+        label.text = ""
         label.numberOfLines = 2
         label.textColor = UIColor.black
         return label
@@ -52,7 +60,7 @@ class ResultsCell: BaseCell {
     let directionOfObservation: UILabel = {
         let label = UILabel()
         label.translatesAutoresizingMaskIntoConstraints = false
-        label.text = "_"
+        label.text = ""
         label.numberOfLines = 2
         label.textColor = UIColor.black
         return label
@@ -72,6 +80,7 @@ class ResultsCell: BaseCell {
         addConstraintsWithFormat("H:|[v0]|", views: separatorView)
         addConstraintsWithFormat("H:|-[v0(28)]-|", views: imageView)
         addConstraintsWithFormat("V:[v0(28)]", views: imageView)
+         addConstraintsWithFormat("V:|-50-[v0]|", views: titleLabel)
         addConstraintsWithFormat("H:|-15-[v0]|", views: titleLabel)
         addConstraintsWithFormat("H:|-15-[v0]|", views: platName)
         addConstraintsWithFormat("H:|-15-[v0]|", views: directionOfObservation)

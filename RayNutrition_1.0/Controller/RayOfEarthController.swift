@@ -18,7 +18,7 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
     
    lazy var collectionView: UICollectionView = {
          let layout = UICollectionViewFlowLayout()
-         layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 0, right: 0)
+         //layout.sectionInset = UIEdgeInsets(top: 15, left: 0, bottom: 250, right: 0)
          let cv = UICollectionView(frame: .zero, collectionViewLayout: layout )
          cv.backgroundColor = UIColor.white
          cv.dataSource = self
@@ -69,7 +69,7 @@ extension RayOfEarthController {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
         
                     cell.backgroundColor = UIColor.yellow
-                    cell.rayOfReturn = super.rayOfEarth.slices[indexPath.row]
+                    cell.rayOfReturn = rayOfEarth.slices[indexPath.row]
                     cell.row = indexPath.row
                     cell.section = indexPath.section
                     cell.rayName = rayName
@@ -146,7 +146,7 @@ extension RayOfEarthController {
         }
     
         func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-           return CGSize(width: self.frame.width, height: 100)
+            return CGSize(width: self.frame.width, height: 150)
         }
     
      
@@ -211,7 +211,6 @@ extension RayOfEarthController {
     
     
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-
         if G_Res.selectedSlices.count > 0 {
             for item in 0...G_Res.selectedSlices.count-1{
                 if indexPath.section == G_Res.selectedSlices[item]?.section{
@@ -243,6 +242,12 @@ extension RayOfEarthController {
             G_Res.selectedSlices.append(indexPath)
         }
         print(G_Res.selectedSlices)
+      for item in G_Res.selectedSlices{
+                if item?.section == 1{
+                    print("ok")
+                }
+                print(item?.section as Any)
+            }
         
 
         
