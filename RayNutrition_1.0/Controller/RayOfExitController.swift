@@ -12,7 +12,7 @@ class RayOfExitController:BaseCell, UICollectionViewDataSource, UICollectionView
     
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     let rayName = "Луч Выхода"
-    let rayOfExit = Rays(rayName: "Луч Выхода")
+    
 
     lazy var collectionView: UICollectionView = {
               let layout = UICollectionViewFlowLayout()
@@ -62,7 +62,7 @@ extension RayOfExitController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
                    cell.backgroundColor = UIColor.yellow
-            cell.rayOfReturn = rayOfExit.slices[indexPath.item]
+            cell.slice = rayOfExit.slices[indexPath.item]
             
             cell.contentView.layer.cornerRadius = 2.0
                cell.contentView.layer.borderWidth = 1.0

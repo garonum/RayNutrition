@@ -19,11 +19,11 @@ class ResultsCell: BaseCell {
         }
     }
     
-    var rayOfReturn: Slices? {
+    var slice: Slices? {
         didSet {
-            titleLabel.text = rayOfReturn?.productsName
-            platName.text = rayOfReturn?.platName
-            directionOfObservation.text = rayOfReturn?.directionOfObservation
+            titleLabel.text = slice?.productsName
+            platName.text = slice?.platName
+            directionOfObservation.text = slice?.directionOfObservation
 
             
         }

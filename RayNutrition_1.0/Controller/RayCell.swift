@@ -11,6 +11,9 @@ import UIKit
 class BaseCell: UICollectionViewCell {
     
     let rayOfEarth = Rays(rayName: "Луч Земли")
+    let rayOfHuman = Rays(rayName: "Луч Человека")
+    let rayOfReturn = Rays(rayName: "Луч Возврата")
+    let rayOfExit = Rays(rayName: "Луч Выхода")
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -31,12 +34,12 @@ class BaseCell: UICollectionViewCell {
 
 class RayCell: BaseCell {
     
-    var rayOfReturn: Slices? {
+    var slice: Slices? {
         didSet {
             
-            titleLabel.text = rayOfReturn?.productsName
-            platName.text = rayOfReturn?.platName
-            directionOfObservation.text = rayOfReturn?.directionOfObservation
+            titleLabel.text = slice?.productsName
+            platName.text = slice?.platName
+            directionOfObservation.text = slice?.directionOfObservation
             
                        
             

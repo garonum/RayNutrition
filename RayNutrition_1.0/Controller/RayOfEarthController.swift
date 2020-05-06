@@ -8,7 +8,6 @@
 
 import UIKit
 
-
 class RayOfEarthController:BaseCell, 
 UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
 
@@ -27,18 +26,15 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
      }()
     
      override func setupViews() {
-        
          super.setupViews()
-
-         addSubview(collectionView)
         
+         addSubview(collectionView)
+
         addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
 
-
         collectionView.register(EarthHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
         collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
-        
         collectionView.register(EaTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter , withReuseIdentifier: "Footer")
        
          collectionView.backgroundColor = UIColor.green
@@ -46,122 +42,18 @@ UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFl
       
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: rayName), object: nil)
         
-        
-        
      }
 
-
-}
-
-extension RayOfEarthController {
-    
-     func numberOfSections(in collectionView: UICollectionView) -> Int {
-       
-        return super.rayOfEarth.amount(nameOfRays: rayName)
-        
-    }
-    
-    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return super.rayOfEarth.slices.count
-        }
-        
-    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
-        
-                    cell.backgroundColor = UIColor.yellow
-                    cell.rayOfReturn = rayOfEarth.slices[indexPath.row]
-                    cell.row = indexPath.row
-                    cell.section = indexPath.section
-                    cell.rayName = rayName
-
-                    cell.contentView.layer.cornerRadius = 2.0
-                    cell.contentView.layer.borderWidth = 1.0
-                    cell.contentView.layer.borderColor = UIColor.clear.cgColor
-                    cell.contentView.layer.masksToBounds = true;
-
-                    cell.layer.shadowColor = UIColor.lightGray.cgColor
-                    cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
-                    cell.layer.shadowRadius = 2.0
-                    cell.layer.shadowOpacity = 1.0
-                    cell.layer.masksToBounds = false;
-                    cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
-       
-            return cell
-    }
-    
-  
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        insetForSectionAt section: Int) -> UIEdgeInsets {
-      return sectionInsets
-    }
-    
-    // 4
-    func collectionView(_ collectionView: UICollectionView,
-                        layout collectionViewLayout: UICollectionViewLayout,
-                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-      return sectionInsets.left
-    }
-    
-     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-         return CGSize(width: self.frame.width-80, height: 80)
-     }
-    
-     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
- 
-          if kind == UICollectionView.elementKindSectionHeader {
-//            let someView = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "someRandonIdentifierString", for: indexPath) as! SupView
-//            return someView
-              guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as? EarthHeader
-            else {
-                     fatalError("Invalid view type")
-                 }
-              header.backgroundColor = .blue
-            //header.titleLabel.text = "  Earth"
-              return header
-          } else {
-            
-              guard let footer = collectionView.dequeueReusableSupplementaryView(
-                ofKind: kind,
-                withReuseIdentifier: "Footer",
-                for: indexPath) as? EaTimeFactor
-                else{
-                    fatalError("Invalid view type")
-            }
-          
-            footer.gradeTextField.tag = indexPath.section
-            G_Res.oneMoreSI(indexPath: indexPath)
-            
-            
-            
-            
-              footer.backgroundColor = .green
-              return footer
-          }
-      }
-        
-    
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-           return CGSize(width: self.frame.width, height: 50)
-        }
-    
-        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-            return CGSize(width: self.frame.width, height: 150)
-        }
-    
-     
-     
 }
 
 extension RayOfEarthController {
    
     @objc func loadList(notification: NSNotification) {
         
-        super.rayOfEarth.oneMore(nameOfRays: rayName)
+        rayOfEarth.oneMore(nameOfRays: rayName)
      
         self.collectionView.reloadData()
-     
-           //print(super.rayOfEarth.amount(nameOfRays: rayName))
+    
                   // восстановление выбранных ранее элементов (после перезагрузки все выбранное слетает)
           if G_Res.selectedSlices.count > 0 { // смотрим выбирал ли юзер срез ранее
               for i in 0...rayOfEarth.amount(nameOfRays: rayName){// проверяются все лучи одного вида(например луч земли)
@@ -194,21 +86,44 @@ extension RayOfEarthController {
             return false
         }
     }
+   
+}
+
+extension RayOfEarthController {
     
-//    func allreadyExist(cur:Int)->Bool{
-//            var check = 0
-//        for item in 0...G_Res.selectedSlices.count-1{
-//            if cur == G_Res.selectedSlices[item]?.section{
-//                    check=1
-//                }
-//            }
-//            if check > 0{
-//                return true
-//            }else{
-//                return false
-//            }
-//        }
+     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
+        return super.rayOfEarth.amount(nameOfRays: rayName)
+        
+    }
     
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+            return rayOfEarth.slices.count
+        }
+        
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
+        
+                    cell.backgroundColor = UIColor.yellow
+                    cell.slice = rayOfEarth.slices[indexPath.row]
+                    cell.row = indexPath.row
+                    cell.section = indexPath.section
+                    cell.rayName = rayName
+
+                    cell.contentView.layer.cornerRadius = 2.0
+                    cell.contentView.layer.borderWidth = 1.0
+                    cell.contentView.layer.borderColor = UIColor.clear.cgColor
+                    cell.contentView.layer.masksToBounds = true;
+
+                    cell.layer.shadowColor = UIColor.lightGray.cgColor
+                    cell.layer.shadowOffset = CGSize(width:0,height: 2.0)
+                    cell.layer.shadowRadius = 2.0
+                    cell.layer.shadowOpacity = 1.0
+                    cell.layer.masksToBounds = false;
+                    cell.layer.shadowPath = UIBezierPath(roundedRect:cell.bounds, cornerRadius:cell.contentView.layer.cornerRadius).cgPath
+       
+            return cell
+    }
     
      func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         if G_Res.selectedSlices.count > 0 {
@@ -249,11 +164,66 @@ extension RayOfEarthController {
                 print(item?.section as Any)
             }
         
-
-        
     }
-   
+    
   
-   
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        insetForSectionAt section: Int) -> UIEdgeInsets {
+      return sectionInsets
+    }
+    
+    // 4
+    func collectionView(_ collectionView: UICollectionView,
+                        layout collectionViewLayout: UICollectionViewLayout,
+                        minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+      return sectionInsets.left
+    }
+    
+     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+         return CGSize(width: self.frame.width-80, height: 80)
+     }
+    
+     func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+ 
+          if kind == UICollectionView.elementKindSectionHeader {
+
+              guard let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as? EarthHeader
+            else {
+                     fatalError("Invalid view type")
+                 }
+              header.backgroundColor = .blue
+              return header
+          } else {
+            
+              guard let footer = collectionView.dequeueReusableSupplementaryView(
+                ofKind: kind,
+                withReuseIdentifier: "Footer",
+                for: indexPath) as? EaTimeFactor
+                else{
+                    fatalError("Invalid view type")
+            }
+          
+            footer.gradeTextField.tag = indexPath.section
+            G_Res.oneMoreSI(indexPath: indexPath)
+            
+              footer.backgroundColor = .green
+              return footer
+          }
+      }
+        
+    
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+           return CGSize(width: self.frame.width, height: 50)
+        }
+    
+        func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+            return CGSize(width: self.frame.width, height: 150)
+        }
+    
+     
+     
 }
+
+
 

@@ -9,9 +9,11 @@
 import UIKit
 
 class RayOfHumanController: BaseCell, UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout {
+    
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+    
     let rayName = "Луч Человека"
-    let rayOfHuman = Rays(rayName: "Луч Человека")
+    
    
     lazy var collectionView: UICollectionView = {
         let layout = UICollectionViewFlowLayout()
@@ -25,39 +27,52 @@ class RayOfHumanController: BaseCell, UICollectionViewDataSource, UICollectionVi
     
     override func setupViews() {
         super.setupViews()
+        
         addSubview(collectionView)
+        
         addConstraintsWithFormat( "H:|[v0]|", views: collectionView)
         addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
         
-        collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
         collectionView.register(HumanHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
+        collectionView.register(RayCell.self, forCellWithReuseIdentifier: rayName)
          collectionView.register(HTimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
         
         collectionView.backgroundColor = UIColor.green
+        collectionView.allowsMultipleSelection = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(loadList(notification:)), name: NSNotification.Name(rawValue: rayName), object: nil)
-    }
-    @objc func loadList(notification: NSNotification) {
-         rayOfHuman.oneMore(nameOfRays: rayName)
-      self.collectionView.reloadData()
-     
+        
     }
     
 }
 
 extension RayOfHumanController {
+    
+    @objc func loadList(notification: NSNotification) {
+         
+        rayOfHuman.oneMore(nameOfRays: rayName)
+        
+        self.collectionView.reloadData()
+     
+    }
+}
+
+extension RayOfHumanController {
+    
     func numberOfSections(in collectionView: UICollectionView) -> Int {
+        
         return rayOfHuman.amount(nameOfRays: rayName)
+        
        }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-           return rayOfHuman.slices.count
+            return rayOfHuman.slices.count
           }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
              let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
                     cell.backgroundColor = UIColor.yellow
-                  cell.rayOfReturn = rayOfHuman.slices[indexPath.item]
+                  cell.slice = rayOfHuman.slices[indexPath.item]
              
              cell.contentView.layer.cornerRadius = 2.0
                 cell.contentView.layer.borderWidth = 1.0
@@ -106,6 +121,6 @@ extension RayOfHumanController {
              return CGSize(width: self.frame.width, height: 50)
          }
          func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-             return CGSize(width: self.frame.width, height: 100)
+             return CGSize(width: self.frame.width, height: 150)
          }
 }

@@ -60,7 +60,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
          self.endEditing(true)
      }
     
-    var rayOfReturn: Slices? {
+    var slice: Slices? {
         didSet {
 //            titleLabel.text = rayOfReturn?.productsName
 //            platName.text = rayOfReturn?.platName

@@ -12,7 +12,7 @@ class RayOfReturnController:BaseCell, UICollectionViewDataSource, UICollectionVi
     
     private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
     let rayName = "Луч Возврата"
-    let rayOfReturn = Rays(rayName: "Луч Возврата")
+    
     
     lazy var collectionView: UICollectionView = {
            let layout = UICollectionViewFlowLayout()
@@ -62,7 +62,7 @@ extension RayOfReturnController {
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: rayName, for: indexPath) as! RayCell
                    cell.backgroundColor = UIColor.yellow
-            cell.rayOfReturn = rayOfReturn.slices[indexPath.item]
+            cell.slice = rayOfReturn.slices[indexPath.item]
             
             cell.contentView.layer.cornerRadius = 2.0
                cell.contentView.layer.borderWidth = 1.0
