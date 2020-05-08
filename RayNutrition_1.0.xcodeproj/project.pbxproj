@@ -8,6 +8,9 @@
 
 /* Begin PBXBuildFile section */
 		FA0AF7C7245CC0C90025E1E6 /* GlobalResults.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AF7C6245CC0C90025E1E6 /* GlobalResults.swift */; };
+		FA0D3B272463617C008AF2A6 /* UniversalRayConroller.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D3B262463617C008AF2A6 /* UniversalRayConroller.swift */; };
+		FA0D3B2924637963008AF2A6 /* Header.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D3B2824637963008AF2A6 /* Header.swift */; };
+		FA0D3B2B246395B0008AF2A6 /* UCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0D3B2A246395B0008AF2A6 /* UCell.swift */; };
 		FA2091A923FC8DAC00D49904 /* RayOfReturnController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */; };
 		FA2091AC23FC8E6C00D49904 /* Slices.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091AB23FC8E6C00D49904 /* Slices.swift */; };
 		FA2091AE23FC8EEE00D49904 /* RayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA2091AD23FC8EEE00D49904 /* RayCell.swift */; };
@@ -45,6 +48,9 @@
 
 /* Begin PBXFileReference section */
 		FA0AF7C6245CC0C90025E1E6 /* GlobalResults.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GlobalResults.swift; sourceTree = "<group>"; };
+		FA0D3B262463617C008AF2A6 /* UniversalRayConroller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UniversalRayConroller.swift; sourceTree = "<group>"; };
+		FA0D3B2824637963008AF2A6 /* Header.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Header.swift; sourceTree = "<group>"; };
+		FA0D3B2A246395B0008AF2A6 /* UCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UCell.swift; sourceTree = "<group>"; };
 		FA2091A823FC8DAC00D49904 /* RayOfReturnController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RayOfReturnController.swift; sourceTree = "<group>"; };
 		FA2091AB23FC8E6C00D49904 /* Slices.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Slices.swift; sourceTree = "<group>"; };
 		FA2091AD23FC8EEE00D49904 /* RayCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RayCell.swift; sourceTree = "<group>"; };
@@ -139,14 +145,17 @@
 			isa = PBXGroup;
 			children = (
 				FACEE30B23FC6F0500DD8C23 /* ViewController.swift */,
-				FA2091AD23FC8EEE00D49904 /* RayCell.swift */,
+				FA0D3B262463617C008AF2A6 /* UniversalRayConroller.swift */,
+				FA0D3B2824637963008AF2A6 /* Header.swift */,
+				FA0D3B2A246395B0008AF2A6 /* UCell.swift */,
+				FA2091B023FC9DD900D49904 /* TimeFactor.swift */,
 				FA956E7B24095736002A76C7 /* ResultsCell.swift */,
+				FA2091AD23FC8EEE00D49904 /* RayCell.swift */,
 				FA2091AF23FC9DD900D49904 /* EarthHeader.swift */,
 				FA956E7323FF4116002A76C7 /* HumanHeader.swift */,
 				FA956E7523FF4131002A76C7 /* ReturnHeader.swift */,
 				FA956E7723FF433E002A76C7 /* ExitHeader.swift */,
 				FA956E7F24099E6D002A76C7 /* ResultsHeader.swift */,
-				FA2091B023FC9DD900D49904 /* TimeFactor.swift */,
 				FACEE32523FC775900DD8C23 /* MenuBar.swift */,
 				FA76A564243FAECE00EA8F2A /* Ray.swift */,
 				FA2091B323FD56CC00D49904 /* RayOfEarthController.swift */,
@@ -253,14 +262,17 @@
 				FA956E7223FEB05B002A76C7 /* RayOfHumanController.swift in Sources */,
 				FA76A567243FAF6700EA8F2A /* RayElements.swift in Sources */,
 				FACEE32423FC75B700DD8C23 /* Utilities.swift in Sources */,
+				FA0D3B2B246395B0008AF2A6 /* UCell.swift in Sources */,
 				FACEE32323FC75B700DD8C23 /* Extensions.swift in Sources */,
 				FA2091A923FC8DAC00D49904 /* RayOfReturnController.swift in Sources */,
 				FAB8C18E2444CFB7002CB358 /* ExTimeFactor.swift in Sources */,
 				FA2091B223FC9DD900D49904 /* TimeFactor.swift in Sources */,
+				FA0D3B272463617C008AF2A6 /* UniversalRayConroller.swift in Sources */,
 				FA956E7A2409277E002A76C7 /* ResultsController.swift in Sources */,
 				FAB8C18A2444CF3E002CB358 /* HTimeFactor.swift in Sources */,
 				FACEE30C23FC6F0500DD8C23 /* ViewController.swift in Sources */,
 				FACEE30823FC6F0500DD8C23 /* AppDelegate.swift in Sources */,
+				FA0D3B2924637963008AF2A6 /* Header.swift in Sources */,
 				FACEE32723FC775900DD8C23 /* MenuBar.swift in Sources */,
 				FA54075024237FB00021FAD7 /* RaysData.swift in Sources */,
 				FA2091AE23FC8EEE00D49904 /* RayCell.swift in Sources */,

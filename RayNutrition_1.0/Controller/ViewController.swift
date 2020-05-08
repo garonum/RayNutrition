@@ -12,15 +12,19 @@ class ViewController: UIViewController, UICollectionViewDataSource {
     
    
     var collectionView: UICollectionView!
-    var earthId = "Earth"
-    var humanId = "Human"
-    var returnId = "Return"
-    var exitId = "Exit"
+    
+    let rayOfEarth = Rays(rayName: "Луч Земли")
+    let rayOfHuman = Rays(rayName: "Луч Человека")
+    let rayOfReturn = Rays(rayName: "Луч Возврата")
+    let rayOfExit = Rays(rayName: "Луч Выхода")
+    
+    var earthId = "Луч Земли"
+    var humanId = "Луч Человека"
+    var returnId = "Луч Возврата"
+    var exitId = "Луч Выхода"
     var resultsId = "Results"
 
-    struct MyVariables {
-        static var resulOfAllRays = [0:12 , 1: 44, 2: 47]
-    }
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -51,6 +55,7 @@ class ViewController: UIViewController, UICollectionViewDataSource {
         collectionView?.scrollToItem(at: indexPath, at: .centeredHorizontally, animated: false)
         if menuIndex == 4{
          NotificationCenter.default.post(name: NSNotification.Name("results"), object: nil)
+           
         }
     }
     
@@ -74,10 +79,10 @@ class ViewController: UIViewController, UICollectionViewDataSource {
             collectionView.dataSource = self
             collectionView.delegate = self
             //collectionView.register(UICollectionViewCell.self, forCellWithReuseIdentifier: cellId)
-            collectionView.register(RayOfEarthController.self, forCellWithReuseIdentifier: earthId)
-            collectionView.register(RayOfHumanController.self, forCellWithReuseIdentifier: humanId)
-            collectionView.register(RayOfReturnController.self, forCellWithReuseIdentifier: returnId)
-            collectionView.register(RayOfExitController.self, forCellWithReuseIdentifier: exitId)
+            collectionView.register(UniversalRayController.self, forCellWithReuseIdentifier: earthId)
+            collectionView.register(UniversalRayController.self, forCellWithReuseIdentifier: humanId)
+            collectionView.register(UniversalRayController.self, forCellWithReuseIdentifier: returnId)
+            collectionView.register(UniversalRayController.self, forCellWithReuseIdentifier: exitId)
             collectionView.register(ResultsController.self, forCellWithReuseIdentifier: resultsId)
 
             collectionView.showsVerticalScrollIndicator = false
@@ -99,38 +104,68 @@ extension ViewController {
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-           var identifier: String
+           
         
-//        if indexPath.item == 4 {
-//            identifier = resultsId
-//            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! ResultsController
-//            cell.delegate = self
-//             return cell
-//        }
-        var cell:UICollectionViewCell!
-           switch indexPath.item {
-           case 0:
-               identifier = earthId
-               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-           case 1:
-               identifier = humanId
-               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-           case 2:
-               identifier = returnId
-               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-           case 3:
-               identifier = exitId
-               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-           case 4:
-                identifier = resultsId
-                cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
-            
-           default:
-               identifier = humanId
-               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+        if indexPath.item == 0 {
+           
+            let cell = collectionView.dequeueReusableCell(withReuseIdentifier: earthId, for: indexPath) as! UniversalRayController
+                         
+            cell.RayN = "Луч Земли"
+            cell.rayData = rayOfEarth
+             return cell
+        }
+        if indexPath.item == 1 {
+               
+                let cell = collectionView.dequeueReusableCell(withReuseIdentifier: humanId, for: indexPath) as! UniversalRayController
+               cell.RayN = "Луч Человека"
+                cell.rayData = rayOfHuman
+                return cell
            }
-                
+        if indexPath.item == 2 {
+              
+                  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: returnId, for: indexPath) as! UniversalRayController
+                 cell.RayN = "Луч Возврата"
+                  cell.rayData = rayOfReturn
+                  return cell
+                 }
+        if indexPath.item == 3 {
+                  let cell = collectionView.dequeueReusableCell(withReuseIdentifier: exitId, for: indexPath) as! UniversalRayController
+                 cell.RayN = "Луч Выхода"
+                  cell.rayData = rayOfExit
+                  return cell
+                 }
+        if indexPath.item == 4 {
+         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: resultsId, for: indexPath)
+        //cell.RayN = "Результаты"
+         //cell.rayData = rayOfExit
+         return cell
+        }
         
+//           switch indexPath.item {
+////           case 90:
+////               identifier = earthId
+////               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath) as! UniversalRayController
+////
+////           case 10:
+////               identifier = humanId
+////               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+////           case 22:
+////               identifier = returnId
+////               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+////           case 33:
+////               identifier = exitId
+////               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+//           case 44:
+//                identifier = resultsId
+//                cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+//
+//           default:
+//               identifier = earthId
+//               cell = collectionView.dequeueReusableCell(withReuseIdentifier: identifier, for: indexPath)
+//           }
+                
+        let cell:UICollectionViewCell!
+        cell = collectionView.dequeueReusableCell(withReuseIdentifier: "", for: indexPath)
         return cell
        }
 }
