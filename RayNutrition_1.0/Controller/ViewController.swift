@@ -63,13 +63,13 @@ class ViewController: UIViewController, UICollectionViewDataSource {
              
              view.addSubview(menuBar)
              view.addConstraintsWithFormat("H:|[v0]|", views: menuBar)
-             view.addConstraintsWithFormat("V:[v0(70)]-0-|", views: menuBar)
+             view.addConstraintsWithFormat("V:[v0(50)]-0-|", views: menuBar)
 
          }
     
     func setupCollectionView() {
           let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
-             collectionView = UICollectionView(frame: CGRect(x: 0, y: 50, width: self.view.frame.width, height: self.view.frame.height-120), collectionViewLayout: layout)
+             collectionView = UICollectionView(frame: CGRect(x: 0, y: 25, width: self.view.frame.width, height: self.view.frame.height-70), collectionViewLayout: layout)
         
         if let flowLayout = collectionView?.collectionViewLayout as? UICollectionViewFlowLayout {
                     flowLayout.scrollDirection = .horizontal
@@ -172,7 +172,7 @@ extension ViewController {
 
 extension ViewController: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-           return CGSize(width: view.frame.width, height: view.frame.height-120)
+           return CGSize(width: view.frame.width, height: view.frame.height-70)
        }
 }
 

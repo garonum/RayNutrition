@@ -73,26 +73,26 @@ class ResultsCell: BaseCell {
         addSubview(separatorView)
         addSubview(imageView)
         addSubview(titleLabel)
-        addSubview(platName)
-        addSubview(directionOfObservation)
+//        addSubview(platName)
+//        addSubview(directionOfObservation)
 
         
         addConstraintsWithFormat("H:|[v0]|", views: separatorView)
-        addConstraintsWithFormat("H:|-[v0(28)]-|", views: imageView)
-        addConstraintsWithFormat("V:[v0(28)]", views: imageView)
-         addConstraintsWithFormat("V:|-50-[v0]|", views: titleLabel)
+        addConstraintsWithFormat("H:|-20-[v0(28)]-20-|", views: imageView)
+        addConstraintsWithFormat("V:|-5-[v0(28)]", views: imageView)
+         addConstraintsWithFormat("V:|-5-[v0]|", views: titleLabel)
         addConstraintsWithFormat("H:|-15-[v0]|", views: titleLabel)
-        addConstraintsWithFormat("H:|-15-[v0]|", views: platName)
-        addConstraintsWithFormat("H:|-15-[v0]|", views: directionOfObservation)
-        
+//        addConstraintsWithFormat("H:|-15-[v0]|", views: platName)
+//        addConstraintsWithFormat("H:|-15-[v0]|", views: directionOfObservation)
+//
         
 //        
 //        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerX, relatedBy: .equal, toItem: self, attribute: .centerX, multiplier: 1, constant: 0))
 //        addConstraint(NSLayoutConstraint(item: imageView, attribute: .centerY, relatedBy: .equal, toItem: self, attribute: .centerY, multiplier: 1, constant: 0))
 //        
         //addConstraint(NSLayoutConstraint(item: titleLabel, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 30))
-        addConstraint(NSLayoutConstraint(item: platName, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 70))
-        addConstraint(NSLayoutConstraint(item: directionOfObservation, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 120))
+//        addConstraint(NSLayoutConstraint(item: platName, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 70))
+//        addConstraint(NSLayoutConstraint(item: directionOfObservation, attribute: .height, relatedBy: .equal, toItem: self, attribute: .height, multiplier: 0, constant: 120))
         
         
     }

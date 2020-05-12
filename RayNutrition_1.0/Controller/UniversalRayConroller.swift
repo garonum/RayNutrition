@@ -11,7 +11,7 @@ import UIKit
 class UniversalRayController:BaseCell,
 UICollectionViewDataSource, UICollectionViewDelegate, UICollectionViewDelegateFlowLayout  {
 
-private let sectionInsets = UIEdgeInsets(top: 50.0, left: 20.0, bottom: 50.0, right: 20.0)
+private let sectionInsets = UIEdgeInsets(top: 25.0, left: 20.0, bottom: 5.0, right: 20.0)
     var RayN:String? {
        didSet {
            
@@ -317,23 +317,27 @@ extension UniversalRayController {
              
                footer.gradeTextField.tag = indexPath.section
                 footer.rN = rayName
+                
                 print(rayName)
                 if rayName == "Луч Земли" {
                     G_Res.oneMoreSI(indexPath: indexPath, rayName: rayName)
-                    
+                    footer.commentForInt = "Время от получения продукта\n до его употребления;"
+                    //(Изъятие его из земли, воды, с дерева, с куста) \n
                 }
                 if rayName == "Луч Человека" {
                     G_Res.oneMoreSI(indexPath: indexPath, rayName: rayName)
+                    footer.commentForInt = "Время от приготовления продукта до его употребления;"
                     
                 }
                 if rayName == "Луч Возврата" {
                     G_Res.oneMoreSI(indexPath: indexPath, rayName: rayName)
                     
+                    footer.commentForInt = "Время от появления желания до его осуществления; до начала работы с ним или от просмотра меню до заказа"
                     
                 }
                 if rayName == "Луч Выхода" {
                     G_Res.oneMoreSI(indexPath: indexPath, rayName: rayName)
-                    
+                    footer.commentForInt = "Время от приготовления напитка до его употребления;"
                 }
                
                
@@ -504,7 +508,7 @@ extension UniversalRayController {
     }
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return CGSize(width: self.frame.width, height: 150)
+        return CGSize(width: self.frame.width, height: 200)
     }
     
 }

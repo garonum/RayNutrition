@@ -22,17 +22,41 @@ UIPickerViewDelegate, UIPickerViewDataSource {
       }
     
     var rayName : String!
+    var commentForInt:String? {
+       didSet {
+           
+           coment.text = commentForInt
+           
+           }
+           
+       }
+       var coment: UILabel = {
+           let label = UILabel()
+           label.translatesAutoresizingMaskIntoConstraints = false
+           label.text = ""
+           label.numberOfLines = 2
+           label.textColor = UIColor.black
+           return label
+       }()
     
     override func setupViews() {
-   
+            
+            addSubview(coment)
+                    
+            addConstraintsWithFormat("H:|-25-[v0]-25-|", views: coment)
+            addConstraintsWithFormat("V:|-15-[v0]", views: coment)
+        
           UIPicker.delegate = self as UIPickerViewDelegate
           UIPicker.dataSource = self as UIPickerViewDataSource
-         
+        
           addSubview(gradeTextField)
+            
+            addConstraintsWithFormat("H:|-25-[v0]-25-|", views: gradeTextField)
+            addConstraintsWithFormat("V:|-75-[v0]", views: gradeTextField)
           
           gradeTextField.inputView = UIPicker
           gradeTextField.text = dataArray[0]
-          setupButton()
+          setup()
           
       }
     
@@ -71,7 +95,7 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
    let gradeTextField: UITextField = {
-        let UIPicker = UITextField(frame: CGRect(x: 20, y: 15, width: 300, height: 40))
+        let UIPicker = UITextField(frame: CGRect(x: 0, y: 0, width: 300, height: 40))
     UIPicker.tag = 0
         //UIPicker.placeholder = "Enter text here"
         UIPicker.font = UIFont.systemFont(ofSize: 15)
@@ -98,10 +122,10 @@ UIPickerViewDelegate, UIPickerViewDataSource {
     
     var titleLabelHeightConstraint: NSLayoutConstraint?
     
-    func setupButton(){
+    func setup(){
         
            let button = UIButton.init(type: .system)
-        button.frame = CGRect(x: 50.0, y: 75.0, width: 200.0, height: 52.0)
+        button.frame = CGRect(x: 50.0, y: 135.0, width: 200.0, height: 52.0)
               button.layer.borderWidth = 5.0
               button.layer.borderColor = UIColor.white.cgColor
               button.backgroundColor = UIColor.green
@@ -111,6 +135,9 @@ UIPickerViewDelegate, UIPickerViewDataSource {
                button.setTitle("Добавить", for: .normal)
                button.addTarget(self, action:#selector(buttonClicked), for: .touchUpInside)
             addSubview(button)
+        
+        //addConstraintsWithFormat("H:|-25-[v0]-25-|", views: button)
+        //addConstraintsWithFormat("V:|-130-[v0]", views: button)
        }
     
        @objc func buttonClicked() {

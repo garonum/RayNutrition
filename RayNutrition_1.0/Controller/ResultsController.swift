@@ -32,7 +32,7 @@ class ResultsController:BaseCell, UICollectionViewDataSource, UICollectionViewDe
               addConstraintsWithFormat( "V:|[v0]|", views: collectionView)
               
               collectionView.register(ResultsCell.self, forCellWithReuseIdentifier: cellId)
-              collectionView.register(ResultsHeader.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
+              collectionView.register(Header.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "Header")
             
                //collectionView.register(TimeFactor.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "Footer")
               
@@ -113,8 +113,9 @@ extension ResultsController {
      func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
             
           if kind == UICollectionView.elementKindSectionHeader {
-              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
+              let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath) as! Header
               header.backgroundColor = .blue
+            header.title =  "Результаты"
               return header
           }else{
             let header = collectionView.dequeueReusableSupplementaryView(ofKind: kind, withReuseIdentifier: "Header", for: indexPath)
@@ -124,7 +125,7 @@ extension ResultsController {
         
       }
 //    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
-// 
+//
 //    }
      func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
            return CGSize(width: self.frame.width, height: 50)

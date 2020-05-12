@@ -137,50 +137,50 @@ class Rays {
                 }()
         case "Луч Выхода":
             let ninthSlice = Slices()
-                ninthSlice.productsName = "Семена"
-                ninthSlice.platName = "Плат Эффект"
-                ninthSlice.directionOfObservation = "ЫЙИ-нить"
+                ninthSlice.productsName = "Чистая вода"
+                ninthSlice.platName = "План Оси"
+                ninthSlice.directionOfObservation = ""
                 
             let eighthSlice = Slices()
-                eighthSlice.productsName = "Семена"
-                eighthSlice.platName = "Плат Эффект"
-                eighthSlice.directionOfObservation = "ЫЙИ-нить"
+                eighthSlice.productsName = "Газир. вода(естественная газация)"
+                eighthSlice.platName = "План Знакоряда"
+                eighthSlice.directionOfObservation = ""
                 
             let seventhSlice = Slices()
-                seventhSlice.productsName = "Семена"
-                seventhSlice.platName = "Плат Эффект"
-                seventhSlice.directionOfObservation = "ЫЙИ-нить"
+                seventhSlice.productsName = "Газир. напитки(искусственная газация)"
+                seventhSlice.platName = "План Обновления"
+                seventhSlice.directionOfObservation = ""
                 //seventhSlice.numberOfViews = 57989654934
                 
             let sixthSlice = Slices()
-                sixthSlice.productsName = "Зерна"
-                sixthSlice.platName = "Плат Вселенский"
-                sixthSlice.directionOfObservation = "Ритмологический рисунок из ЫЙИ"
+                sixthSlice.productsName = "Заваренное кипятком(чай,кофе,кисель)"
+                sixthSlice.platName = "План Озаригн"
+                sixthSlice.directionOfObservation = ""
                 
             let fiveSlice = Slices()
-                fiveSlice.productsName = "Плоды"
-                fiveSlice.platName = "Плат Знаний"
-                fiveSlice.directionOfObservation = "Книга Озаригн"
+                fiveSlice.productsName = "Соки"
+                fiveSlice.platName = "Плотный план"
+                fiveSlice.directionOfObservation = ""
                 
             let fourthSlice = Slices()
-                fourthSlice.productsName = "Цветы, мед"
-                fourthSlice.platName = "Плат Любви"
-                fourthSlice.directionOfObservation = "Книга Радастея"
+                fourthSlice.productsName = "Вареное в воде(компот) сыворотка"
+                fourthSlice.platName = "План Кристаллии"
+                fourthSlice.directionOfObservation = ""
                 
             let thirdSlice = Slices()
-                thirdSlice.productsName = "Листья"
-                thirdSlice.platName = "Плат Славы"
-                thirdSlice.directionOfObservation = "Книга Ирлем"
+                thirdSlice.productsName = "Молоко всех видов"
+                thirdSlice.platName = "План Кораллнеи"
+                thirdSlice.directionOfObservation = ""
                 
             let secondSlice = Slices()
-                secondSlice.productsName = "Стебель"
-                secondSlice.platName = "Плат Денег"
-                secondSlice.directionOfObservation = "Ритмический рисунок из ЫЙИ"
+                secondSlice.productsName = "Морс, квас"
+                secondSlice.platName = "План Звездолета"
+                secondSlice.directionOfObservation = ""
                 
             let firstSlice = Slices()
-                firstSlice.productsName = "Корень"
-                firstSlice.platName = "Плат Стыда"
-                firstSlice.directionOfObservation = "ЫЙИ"
+                firstSlice.productsName = "Кисломолочные, йогурт"
+                firstSlice.platName = "План Полета"
+                firstSlice.directionOfObservation = ""
             self.exitRay = Ray(slices: [ninthSlice, eighthSlice, seventhSlice, sixthSlice, fiveSlice, fourthSlice, thirdSlice, secondSlice, firstSlice ])
                                      
             self.slices = exitRay.slices

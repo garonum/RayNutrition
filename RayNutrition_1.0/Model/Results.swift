@@ -23,8 +23,9 @@ class Result: Results{
     
     var eCoefficentRaySlice = [27,20,14,7]
     var hCoefficentRaySlice = [27,23,18,14,9,5]
-    var exCoefficentRaySlice = [27,20,14,7]
-    var rCoefficentRaySlice = [27,20,14,7]
+    var rCoefficentRaySlice = [27,24,20,16,12,8,4]
+    var exCoefficentRaySlice = [27,24,21,18,15,12,9,6,3]
+    
     var timeFactor = [13,12,11,10,9,8,7,6,5,4,3,2,1]
     
 //    func saveRayCoefficient(rayName: String, rowNumber: Int, sectionNumber: Int){
@@ -81,7 +82,7 @@ class Result: Results{
                 for secInt in G_Res.hSelectedIntervals{
                     if secSlice?.section == secInt.section {
                         
-                        emissivity += eCoefficentRaySlice[secSlice!.row] * timeFactor[secInt.row]
+                        emissivity += hCoefficentRaySlice[secSlice!.row] * timeFactor[secInt.row]
                     }
                 }
                 
@@ -93,7 +94,7 @@ class Result: Results{
                 for secInt in G_Res.rSelectedIntervals{
                     if secSlice?.section == secInt.section {
                         
-                        emissivity += eCoefficentRaySlice[secSlice!.row] * timeFactor[secInt.row]
+                        emissivity += rCoefficentRaySlice[secSlice!.row] * timeFactor[secInt.row]
                         print(emissivity)
                     }
                 }
@@ -105,7 +106,7 @@ class Result: Results{
                       for secInt in G_Res.exSelectedIntervals{
                           if secSlice?.section == secInt.section {
               
-                              emissivity += eCoefficentRaySlice[secSlice!.row] * timeFactor[secInt.row]
+                              emissivity += exCoefficentRaySlice[secSlice!.row] * timeFactor[secInt.row]
                           }
                       }
                       
